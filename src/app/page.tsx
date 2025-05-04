@@ -45,7 +45,7 @@ export default async function Home() {
 	const projects = await fetchProjects();
 
 	return (
-		<main className="flex flex-col mx-auto w-full home">
+		<main className="flex flex-col mx-auto w-full page-transition home page-root">
 			<section className="flex flex-col border-b border-base-300 w-full blob">
 				<div className="mx-auto mt-48 pb-16 container">
 					<h1 className="font-serif font-extralight text-8xl">
@@ -90,6 +90,7 @@ export default async function Home() {
 						some tidbits:
 					</p>
 					<ul className="mt-4 text-2xl list-disc list-inside">
+						<li>My name&apos;s David.</li>
 						<li>I really enjoy web development.</li>
 						<li>
 							I love taking on challenges and figuring things out.

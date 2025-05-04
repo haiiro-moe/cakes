@@ -17,10 +17,10 @@ const handleRouting = (
 		console.log("page", page);
 
 		page.classList.add("page-detransition");
-		setTimeout(() => {
-			router.push(href);
-		}, 150);
 	}
+	setTimeout(() => {
+		router.push(href);
+	}, 150);
 };
 
 const NavLinkMobile = ({
