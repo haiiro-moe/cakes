@@ -20,6 +20,9 @@ const handleRouting = (
 	}
 	setTimeout(() => {
 		router.push(href);
+		if (page) {
+			page.classList.remove("page-detransition");
+		}
 	}, 150);
 };
 
