@@ -65,12 +65,7 @@ export default function BlogPage() {
 	);
 
 	return (
-		<main
-			className="flex flex-col mx-auto w-full page-transition blog page-root"
-			onMouseMove={() => {
-				console.log(posts);
-			}}
-		>
+		<main className="flex flex-col mx-auto w-full page-transition blog page-root">
 			<section className="flex flex-col border-b border-base-300 w-full blob">
 				<div className="mx-auto mt-48 pb-16 container">
 					<h1 className="font-serif font-extralight text-8xl">
