@@ -2,8 +2,26 @@
 
 import Link from "next/link";
 import ThemeProvider from "./theme-provider";
-import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
+import { MouseEvent, useEffect, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
+
+const handleRouting = (
+	event: MouseEvent<HTMLAnchorElement>,
+	href: string,
+	router: AppRouterInstance
+) => {
+	event.preventDefault();
+	const page = document.querySelector(".page-root");
+	if (page) {
+		console.log("page", page);
+
+		page.classList.add("page-detransition");
+		setTimeout(() => {
+			router.push(href);
+		}, 150);
+	}
+};
 
 const NavLinkMobile = ({
 	href,
@@ -16,10 +34,13 @@ const NavLinkMobile = ({
 	indicator?: React.ReactNode;
 	active?: boolean;
 }) => {
+	const router = useRouter();
+
 	return (
 		<li>
 			<Link
 				href={href}
+				onClick={(e) => handleRouting(e, href, router)}
 				className={
 					"w-full" +
 					(indicator ? " indicator" : "") +
@@ -48,9 +69,12 @@ const NavLink = ({
 	indicator?: React.ReactNode;
 	active?: boolean;
 }) => {
+	const router = useRouter();
+
 	return (
 		<Link
 			href={href}
+			onClick={(e) => handleRouting(e, href, router)}
 			className={
 				"join-item btn hover:scale-105 transition-[scale]" +
 				(indicator ? " indicator" : "") +
@@ -58,7 +82,11 @@ const NavLink = ({
 			}
 		>
 			{indicator && (
-				<span className="px-1 py-0 h-5 text-xs leading-none indicator-item badge badge-primary">
+				<span
+					className={`px-1 py-0 h-5 text-xs leading-none indicator-item badge ${
+						active ? "badge-secondary" : "badge-primary"
+					}`}
+				>
 					{indicator}
 				</span>
 			)}
