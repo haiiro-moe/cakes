@@ -1,12 +1,5 @@
-"use client";
-
-import { Post } from "@/components/blog-page/get-posts";
-import PostCard from "@/components/blog-page/post-card";
 import PostContent from "@/components/blog-page/post-content";
 import RandomQuote from "@/components/home-page/random-quote";
-import Link from "next/link";
-import { useEffect, useState } from "react";
-import useSWR from "swr";
 
 export default async function BlogPostPage({
 	params,
