@@ -45,13 +45,15 @@ export default function PostContent({ slug }: { slug: string }) {
 
 	if (isLoading) {
 		return (
-			<div className="font-serif text-5xl text-center">Loading...</div>
+			<div className="flex justify-center items-center min-h-[90vh] font-serif text-5xl">
+				TODO: Add a skeleton page here.
+			</div>
 		);
 	}
 
 	if (error) {
 		return (
-			<div className="font-serif text-5xl text-center">
+			<div className="flex justify-center items-center min-h-[90vh] font-serif text-5xl">
 				There was an error fetching the post.
 			</div>
 		);
@@ -80,16 +82,6 @@ export default function PostContent({ slug }: { slug: string }) {
 			<section className="flex flex-col bg-base-100 border-b border-base-300 w-full">
 				<div className="relative flex flex-col mx-auto mt-16 pb-16 text-left container">
 					{/* TODO: Filtering */}
-					{isLoading && (
-						<div className="font-serif text-5xl text-center">
-							Loading...
-						</div>
-					)}
-					{error && (
-						<div className="font-serif text-5xl text-center">
-							There was an error fetching the posts.
-						</div>
-					)}
 					{response && response[0] && (
 						<div className="post-content">
 							{/* TODO: Parse markdown!!! */}
