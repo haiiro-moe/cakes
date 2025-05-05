@@ -5,6 +5,8 @@ import ThemeProvider from "./theme-provider";
 import { MouseEvent, useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
+import useSWR from "swr";
+import { Post } from "./blog-page/get-posts";
 
 const handleRouting = (
 	event: MouseEvent<HTMLAnchorElement>,
@@ -98,8 +100,52 @@ const NavLink = ({
 	);
 };
 
+const fetcher = (url: string): Promise<Post[]> =>
+	fetch(url)
+		.then((res) => {
+			if (!res.ok) {
+				throw new Error("Failed to fetch data");
+			}
+			if (res.status === 404) {
+				throw new Error("No data found");
+			}
+			if (res.status === 500) {
+				throw new Error("Server error");
+			}
+			return res.json();
+		})
+		.then((posts) => {
+			if (!posts) {
+				throw new Error("No data found");
+			}
+
+			// Get "seenPosts" from localStorage
+			const seenPosts = localStorage.getItem("seenPosts");
+			if (!seenPosts) {
+				localStorage.setItem("seenPosts", JSON.stringify([]));
+			}
+			const seenPostsArray = JSON.parse(seenPosts || "[]");
+			// Filter out posts that are already seen or are less than 4 months old
+			const fourMonthsAgo = new Date();
+			fourMonthsAgo.setMonth(fourMonthsAgo.getMonth() - 4);
+			posts = posts.filter((post: Post) => {
+				const postDate = new Date(post.date);
+				const isSeen = seenPostsArray.includes(post.slug);
+				const isOld = postDate > fourMonthsAgo;
+				return !isSeen && isOld;
+			});
+
+			return posts;
+		});
+
 export default function Navbar() {
 	const pathname = usePathname();
+
+	const {
+		data: posts,
+		error,
+		isLoading,
+	} = useSWR("/api/blog/posts", (url) => fetcher(url));
 
 	const [isOnTop, setIsOnTop] = useState(true);
 	const handleScroll = () => {
@@ -169,7 +215,7 @@ export default function Navbar() {
 							</NavLinkMobile>
 							<NavLinkMobile
 								href="/blog"
-								indicator={1}
+								indicator={posts?.length}
 								active={pathname == "/blog"}
 							>
 								Blog
@@ -194,7 +240,7 @@ export default function Navbar() {
 						</NavLink>
 						<NavLink
 							href="/blog"
-							indicator={1}
+							indicator={posts?.length}
 							active={pathname == "/blog"}
 						>
 							Blog
