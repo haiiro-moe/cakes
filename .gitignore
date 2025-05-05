@@ -9,6 +9,8 @@
 !.yarn/plugins
 !.yarn/releases
 !.yarn/versions
+# Yarn is only used on my laptop because it doesn't support Bun.
+yarn.lock
 
 # testing
 /coverage
