@@ -15,6 +15,7 @@ export interface Post {
 
 export class CakePosts {
 	public posts: Post[] = [];
+	public initiatedAt: Date = new Date();
 
 	public constructor() {
 		this.posts = this.getPosts();

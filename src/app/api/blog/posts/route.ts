@@ -1,8 +1,13 @@
 import { CakePosts } from "@/components/blog-page/get-posts";
 
-const posts = new CakePosts();
+let posts = new CakePosts();
 
 export async function GET(request: Request) {
+	// Check if the posts were initiated more than an hour ago
+	if (posts.initiatedAt.getTime() < Date.now() - 1000 * 60 * 60) {
+		posts = new CakePosts();
+	}
+
 	let allPosts = posts.posts;
 
 	// Sort posts by date in descending order if there are no query parameters
@@ -16,6 +21,10 @@ export async function GET(request: Request) {
 		allPosts.sort(
 			(a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
 		);
+	}
+	if (searchParams.get("slug")) {
+		const slug = searchParams.get("slug");
+		allPosts = allPosts.filter((post) => post.slug === slug);
 	}
 	if (searchParams.get("type")) {
 		const type = searchParams.get("type");
