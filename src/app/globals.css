@@ -195,15 +195,6 @@
 	}
 }
 
-@layer utilities {
-	.btn {
-		background-image: var(--btn-noise);
-		background-size: 100% 100%;
-		background-repeat: repeat;
-		background-position: center;
-	}
-}
-
 @utility font-var-width-* {
 	font-variation-settings: "wdth" --value(integer), "GRAD" 0;
 }
