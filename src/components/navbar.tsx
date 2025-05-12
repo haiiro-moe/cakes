@@ -146,11 +146,7 @@ const fetcher = (url: string): Promise<Post[]> =>
 export default function Navbar() {
 	const pathname = usePathname();
 
-	const {
-		data: posts,
-		error,
-		isLoading,
-	} = useSWR("/api/blog/posts", (url) => fetcher(url));
+	const { data: posts } = useSWR("/api/blog/posts", (url) => fetcher(url));
 
 	const [isOnTop, setIsOnTop] = useState(true);
 	const handleScroll = () => {
@@ -245,7 +241,9 @@ export default function Navbar() {
 						</NavLink>
 						<NavLink
 							href="/blog"
-							indicator={posts?.length}
+							indicator={
+								posts?.length === 0 ? undefined : posts?.length
+							}
 							active={pathname == "/blog"}
 						>
 							Blog
