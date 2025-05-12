@@ -3,7 +3,6 @@
 import { Post } from "@/components/blog-page/get-posts";
 import PostCard from "@/components/blog-page/post-card";
 import RandomQuote from "@/components/home-page/random-quote";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import useSWR from "swr";
 
@@ -35,7 +34,9 @@ async function fetcher(
 		params.append("after", arg.after);
 	}
 
-	const fullUrl = `${url}?${params.toString()}`;
+	// TODO: Implement filtering
+	// const fullUrl = `${url}?${params.toString()}`;
+	const fullUrl = `${url}`;
 	const response = await fetch(fullUrl);
 	if (!response.ok) {
 		throw new Error("Failed to fetch data");
