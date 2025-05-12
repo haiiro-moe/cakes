@@ -1,9 +1,20 @@
 import Link from "next/link";
 import { Post } from "./get-posts";
+import { useRouter } from "next/navigation";
 
 export default function PostCard({ post }: { post: Post }) {
+	const router = useRouter();
+
 	return (
-		<div className="bg-secondary shadow-xl min-w-[200px] text-secondary-content card">
+		<div
+			className={
+				"bg-base-200 shadow-xl min-w-[200px] text-base-content scale-100 hover:scale-105 " +
+				"transition-transform duration-200 ease-in-out cursor-pointer card"
+			}
+			onClick={() => {
+				router.push(`/blog/${post.slug}`);
+			}}
+		>
 			<div className="card-body">
 				<div className="text-xs date">
 					{new Date(post.date).toLocaleDateString("en-US", {
@@ -25,7 +36,11 @@ export default function PostCard({ post }: { post: Post }) {
 								<Link
 									key={tag}
 									href={`/blog?tags=${tag}`}
-									className="text-xs badge badge-primary"
+									className="hover:text-accent text-xs transition-all duration-150 hover:bg-accent-content badge badge-primary"
+									onClick={(e) => {
+										e.stopPropagation();
+										router.push(`/blog?tags=${tag}`);
+									}}
 								>
 									{tag}
 								</Link>
@@ -33,14 +48,6 @@ export default function PostCard({ post }: { post: Post }) {
 					</span>
 				</h2>
 				<p>{post.description}</p>
-				<div className="justify-end card-actions">
-					<a
-						href={`/blog/${post.slug}`}
-						className="btn btn-secondary"
-					>
-						Read more
-					</a>
-				</div>
 			</div>
 		</div>
 	);
