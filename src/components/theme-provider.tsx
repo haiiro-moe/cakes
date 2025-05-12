@@ -11,13 +11,6 @@ export default function ThemeProvider() {
 			"(prefers-color-scheme: dark)"
 		).matches;
 
-		const themeToggle = document.getElementById(
-			"theme-toggle"
-		) as HTMLInputElement;
-		if (themeToggle) {
-			themeToggle.checked = theme === "haiiro-light";
-		}
-
 		if (storedTheme) {
 			setTheme(storedTheme);
 		} else if (userPrefersDark) {
@@ -26,6 +19,7 @@ export default function ThemeProvider() {
 			setTheme("haiiro-light");
 		}
 		document.documentElement.setAttribute("data-theme", theme);
+		console.log(`Theme set to ${theme}`);
 	}, [theme]);
 
 	return (
@@ -34,20 +28,22 @@ export default function ThemeProvider() {
 				<input
 					id="theme-toggle"
 					type="checkbox"
-					value="haiiro-light"
+					value="haiiro-dark"
 					className="theme-controller"
 					onChange={(e) => {
 						const newTheme = (e.target as HTMLInputElement).checked
-							? "haiiro-light"
-							: "haiiro-dark";
+							? "haiiro-dark"
+							: "haiiro-light";
 						setTheme(newTheme);
 						localStorage.setItem("theme", newTheme);
 						document.documentElement.setAttribute(
 							"data-theme",
 							newTheme
 						);
-						console.log(`Theme changed to ${newTheme}`);
 					}}
+					checked={theme === "haiiro-dark"}
+					aria-checked={theme === "haiiro-dark"}
+					aria-label="Toggle theme"
 				/>
 
 				<svg
