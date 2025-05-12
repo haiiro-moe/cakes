@@ -1,10 +1,28 @@
 "use client";
+
 import useSWR from "swr";
 import { Post } from "./get-posts";
 import Markdown from "react-markdown";
 import rehypeKatex from "rehype-katex";
 import remarkMath from "remark-math";
 import rehypeRaw from "rehype-raw";
+import Link from "next/link";
+import { ChevronLeft, ExternalLink } from "lucide-react";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypeSlug from "rehype-slug";
+import { MouseEvent, useEffect } from "react";
+
+function goToHeading(targetId: string) {
+	const targetElement = document.getElementById(targetId);
+	if (targetElement) {
+		const offsetTop =
+			targetElement.getBoundingClientRect().top + window.scrollY - 100; // Adjust the offset as needed
+		window.scrollTo({
+			top: offsetTop,
+			behavior: "smooth",
+		});
+	}
+}
 
 function fetcher(
 	url: string,
@@ -47,11 +65,32 @@ export default function PostContent({ slug }: { slug: string }) {
 		fetcher(url, { arg: { slug } })
 	);
 
+	useEffect(() => {
+		const hash = window.location.hash;
+		if (hash) {
+			const targetId = hash.substring(1); // Remove the '#' character
+			goToHeading(targetId);
+		}
+
+		const seenPosts = new Set();
+		const seenPostsString = localStorage.getItem("seenPosts");
+		if (seenPostsString) {
+			const seenPostsArray = JSON.parse(seenPostsString);
+			seenPostsArray.forEach((post: string) => seenPosts.add(post));
+		}
+		seenPosts.add(slug);
+		localStorage.setItem("seenPosts", JSON.stringify([...seenPosts]));
+	}, [isLoading, slug]);
+
 	if (isLoading) {
 		return (
 			<>
 				<section className="flex flex-col border-b border-base-300 w-full blob">
-					<div className="mx-auto mt-48 pb-16 container">
+					<div className="mx-auto mt-40 pb-16 container">
+						<Link href="/blog" className="mb-3 btn btn-ghost">
+							<ChevronLeft size={20} />
+							Back to posts
+						</Link>
 						<h1 className="font-serif font-extralight text-8xl">
 							Loading post...
 						</h1>
@@ -88,10 +127,26 @@ export default function PostContent({ slug }: { slug: string }) {
 		);
 	}
 
+	function headingClickHandler(e: MouseEvent<HTMLHeadingElement>) {
+		e.preventDefault();
+		console.log("Heading clicked:", e.currentTarget);
+
+		// Scroll to the heading with a padding of 100px and smooth behavior
+		const targetId = e.currentTarget.id;
+		if (targetId) {
+			goToHeading(targetId);
+			window.history.pushState(null, "", `#${targetId}`);
+		}
+	}
+
 	return (
 		<>
 			<section className="flex flex-col border-b border-base-300 w-full blob">
-				<div className="mx-auto mt-48 pb-16 container">
+				<div className="mx-auto mt-40 pb-16 container">
+					<Link href="/blog" className="mb-3 btn btn-ghost">
+						<ChevronLeft size={20} />
+						Back to posts
+					</Link>
 					<h1 className="font-serif font-extralight text-8xl">
 						{response && response[0] && response[0].title}
 					</h1>
@@ -126,46 +181,94 @@ export default function PostContent({ slug }: { slug: string }) {
 			</section>
 			<section className="flex flex-col bg-base-100 border-b border-base-300 w-full">
 				<div className="relative flex flex-col mx-auto mt-16 pb-16 text-left container">
-					{/* TODO: Filtering */}
+					{/* Render the post content */}
 					{response && response[0] && (
 						<div className="post-content">
 							<Markdown
 								remarkPlugins={[remarkMath]}
-								rehypePlugins={[rehypeKatex, rehypeRaw]}
+								rehypePlugins={[
+									rehypeKatex,
+									rehypeRaw,
+									rehypeSlug,
+									[
+										rehypeAutolinkHeadings,
+										{
+											behavior: "wrap",
+											properties: {
+												className:
+													"inline-flex heading-link",
+											},
+										},
+									],
+								]}
 								components={{
-									p: ({ node, ...props }) => (
+									p: ({ node: _, ...props }) => (
 										<p
 											className="my-4 text-md"
 											{...props}
 										/>
 									),
-									h1: ({ node, ...props }) => (
+									h1: ({ node: _, ...props }) => (
 										<h1
 											className="my-4 font-serif text-5xl"
+											onClick={headingClickHandler}
 											{...props}
 										/>
 									),
-									h2: ({ node, ...props }) => (
+									h2: ({ node: _, ...props }) => (
 										<h2
 											className="my-4 font-serif text-4xl"
+											onClick={headingClickHandler}
 											{...props}
 										/>
 									),
-									h3: ({ node, ...props }) => (
+									h3: ({ node: _, ...props }) => (
 										<h3
 											className="my-4 text-3xl"
+											onClick={headingClickHandler}
 											{...props}
 										/>
 									),
-									h4: ({ node, ...props }) => (
+									h4: ({ node: _, ...props }) => (
 										<h4
 											className="my-4 text-2xl"
+											onClick={headingClickHandler}
 											{...props}
 										/>
 									),
-									h5: ({ node, ...props }) => (
+									h5: ({ node: _, ...props }) => (
 										<h5
 											className="my-4 text-xl"
+											onClick={headingClickHandler}
+											{...props}
+										/>
+									),
+									a: ({ node: _, ...props }) =>
+										props.className?.includes(
+											"heading-link"
+										) ? (
+											<a {...props} />
+										) : (
+											<a
+												className="inline-flex gap-0.5 link link-primary"
+												target="_blank"
+												rel="noopener noreferrer"
+												{...props}
+											>
+												{props.children}
+												<ExternalLink size={12} />
+											</a>
+										),
+									blockquote: ({ node: _, ...props }) => (
+										<div className="bg-base-200 shadow-sm my-5 border-primary border-l-4 card">
+											<div className="p-3 card-body">
+												<blockquote {...props} />
+											</div>
+										</div>
+									),
+									ul: ({ node: _, ...props }) => (
+										<ul
+											className="my-4 list-disc list-inside"
 											{...props}
 										/>
 									),

@@ -193,6 +193,53 @@
 	.page-detransition {
 		animation: page-detransition 0.15s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 	}
+
+	.post-content h1,
+	.post-content h2,
+	.post-content h3,
+	.post-content h4,
+	.post-content h5 {
+		position: relative;
+	}
+
+	.post-content h1::before,
+	.post-content h2::before,
+	.post-content h3::before,
+	.post-content h4::before,
+	.post-content h5::before {
+		position: absolute;
+		top: 50%;
+		left: -1.5rem;
+		color: var(--color-primary);
+		font-size: 1.5rem;
+		opacity: 0.5;
+		transition: all 0.2s ease-in-out;
+		transform: translateY(-0.5rem) translateX(-1rem) rotate(12deg);
+	}
+
+	.post-content h1:hover::before,
+	.post-content h2:hover::before,
+	.post-content h3:hover::before,
+	.post-content h4:hover::before,
+	.post-content h5:hover::before {
+		transform: translateY(0) translateX(0) scale(1.2) rotate(0deg);
+	}
+
+	.post-content h1::before {
+		content: "H1";
+	}
+	.post-content h2::before {
+		content: "H2";
+	}
+	.post-content h3::before {
+		content: "H3";
+	}
+	.post-content h4::before {
+		content: "H4";
+	}
+	.post-content h5::before {
+		content: "H5";
+	}
 }
 
 @utility font-var-width-* {
