@@ -168,14 +168,14 @@ export default function Navbar() {
 	return (
 		<nav
 			className={
-				"top-0 left-0 z-50 fixed px-32 w-full transition-all duration-300 ease-in-out" +
-				(isOnTop ? "" : " p-5")
+				"top-0 left-0 z-50 fixed lg:px-32 w-full transition-all duration-300 ease-in-out" +
+				(isOnTop ? "" : " lg:p-5")
 			}
 		>
 			<div
 				className={
-					"absolute h-5 top-0 left-0 backdrop-blur-sm w-full" +
-					(isOnTop ? " hidden" : " block")
+					"absolute h-5 top-0 left-0 backdrop-blur-sm w-full hidden" +
+					(isOnTop ? " lg:hidden" : " lg:block")
 				}
 			></div>
 			<div
@@ -209,14 +209,18 @@ export default function Navbar() {
 						</div>
 						<ul
 							tabIndex={0}
-							className="z-1 bg-base-100/50 shadow mt-3 p-2 w-52 menu menu-sm dropdown-content"
+							className="z-1 bg-base-100/50 shadow mt-3 p-2 w-full menu menu-sm dropdown-content"
 						>
 							<NavLinkMobile href="/" active={pathname == "/"}>
 								Home
 							</NavLinkMobile>
 							<NavLinkMobile
 								href="/blog"
-								indicator={posts?.length}
+								indicator={
+									posts?.length === 0
+										? undefined
+										: posts?.length
+								}
 								active={pathname == "/blog"}
 							>
 								Blog
