@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import Background from "@/components/background";
+import PathProvider from "@/components/path-provider";
 
 const roboto = Roboto_Flex({
 	subsets: ["latin"],
@@ -51,17 +52,21 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en">
-			<body
-				className={`${roboto.variable} ${robotoMono.variable} ${robotoSerif.variable} antialiased font-sans`}
-			>
-				<div className="relative flex flex-col w-full">
-					<Navbar />
-					<div className="flex min-h-screen content">{children}</div>
-					<Footer />
-					<Background />
-				</div>
-			</body>
-		</html>
+		<PathProvider>
+			<html lang="en">
+				<body
+					className={`${roboto.variable} ${robotoMono.variable} ${robotoSerif.variable} antialiased font-sans`}
+				>
+					<div className="relative flex flex-col w-full">
+						<Navbar />
+						<div className="flex min-h-screen content">
+							{children}
+						</div>
+						<Footer />
+						<Background />
+					</div>
+				</body>
+			</html>
+		</PathProvider>
 	);
 }
