@@ -1,6 +1,7 @@
 import ProjectCards from "@/components/home-page/project-cards";
 import RandomQuote from "@/components/home-page/random-quote";
 import { Endpoints } from "@octokit/types";
+import type { Metadata, ResolvingMetadata } from "next";
 import Link from "next/link";
 
 const projectCache: {
@@ -9,6 +10,16 @@ const projectCache: {
 		createdAt: number;
 	};
 } = {};
+
+export async function generateMetadata(
+	parent: ResolvingMetadata
+): Promise<Metadata> {
+	return {
+		...(parent as Metadata),
+		title: "~cakes - home",
+		description: "Welcome to my personal site.",
+	};
+}
 
 async function fetchProjects(): Promise<
 	Endpoints["GET /users/{username}/repos"]["response"]["data"]
@@ -48,10 +59,16 @@ export default async function Home() {
 		<main className="flex flex-col mx-auto w-full page-transition home page-root">
 			<section className="flex flex-col border-b border-base-300 w-full blob">
 				<div className="mx-auto mt-48 pb-16 container">
-					<h1 className="font-serif font-extralight text-8xl">
+					<h1 className="relative w-fit font-serif font-extralight text-8xl">
 						Welcome to <span className="text-gradient">~cakes</span>
+						<div className="hidden lg:block -top-[1.25ch] -right-[1ch] absolute arrow">
+							<div className="inline-block font-drawing text-xl tracking-wide rotate-12">
+								I&apos;m{" "}
+								<span className="text-green-400">online</span>!
+							</div>
+						</div>
 					</h1>
-					<div className="mx-3">
+					<div className="mx-3 w-full">
 						<p className="mt-4 max-w-lg text-2xl">
 							A personal site for sharing my thoughts, ideas and
 							projects. I&apos;m cakes. Nice to meet you!
