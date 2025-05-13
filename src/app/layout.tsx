@@ -10,6 +10,7 @@ import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import Background from "@/components/background";
 import PathProvider from "@/components/path-provider";
+import { ToastProvider } from "@/components/toast-provider";
 
 const roboto = Roboto_Flex({
 	subsets: ["latin"],
@@ -91,14 +92,16 @@ export default function RootLayout({
 				<body
 					className={`${roboto.variable} ${robotoMono.variable} ${robotoSerif.variable} ${shadowsIntoLight.variable} antialiased font-sans`}
 				>
-					<div className="relative flex flex-col w-full">
-						<Navbar />
-						<div className="flex min-h-screen content">
-							{children}
+					<ToastProvider>
+						<div className="relative flex flex-col w-full">
+							<Navbar />
+							<div className="flex min-h-screen content">
+								{children}
+							</div>
+							<Footer />
+							<Background />
 						</div>
-						<Footer />
-						<Background />
-					</div>
+					</ToastProvider>
 				</body>
 			</html>
 		</PathProvider>
