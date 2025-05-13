@@ -202,48 +202,48 @@ export default function PostContent({ slug }: { slug: string }) {
 									],
 								]}
 								components={{
-									p: ({ node: _, ...props }) => (
+									p: ({ ...props }) => (
 										<p
 											className="my-4 text-md"
 											{...props}
 										/>
 									),
-									h1: ({ node: _, ...props }) => (
+									h1: ({ ...props }) => (
 										<h1
 											className="my-4 font-serif text-5xl"
 											onClick={headingClickHandler}
 											{...props}
 										/>
 									),
-									h2: ({ node: _, ...props }) => (
+									h2: ({ ...props }) => (
 										<h2
 											className="my-4 font-serif text-4xl"
 											onClick={headingClickHandler}
 											{...props}
 										/>
 									),
-									h3: ({ node: _, ...props }) => (
+									h3: ({ ...props }) => (
 										<h3
 											className="my-4 text-3xl"
 											onClick={headingClickHandler}
 											{...props}
 										/>
 									),
-									h4: ({ node: _, ...props }) => (
+									h4: ({ ...props }) => (
 										<h4
 											className="my-4 text-2xl"
 											onClick={headingClickHandler}
 											{...props}
 										/>
 									),
-									h5: ({ node: _, ...props }) => (
+									h5: ({ ...props }) => (
 										<h5
 											className="my-4 text-xl"
 											onClick={headingClickHandler}
 											{...props}
 										/>
 									),
-									a: ({ node: _, ...props }) =>
+									a: ({ ...props }) =>
 										props.className?.includes(
 											"heading-link"
 										) ? (
@@ -259,14 +259,14 @@ export default function PostContent({ slug }: { slug: string }) {
 												<ExternalLink size={12} />
 											</a>
 										),
-									blockquote: ({ node: _, ...props }) => (
+									blockquote: ({ ...props }) => (
 										<div className="bg-base-200 shadow-sm my-5 border-primary border-l-4 card">
 											<div className="p-3 card-body">
 												<blockquote {...props} />
 											</div>
 										</div>
 									),
-									ul: ({ node: _, ...props }) => (
+									ul: ({ ...props }) => (
 										<ul
 											className="my-4 list-disc list-inside"
 											{...props}

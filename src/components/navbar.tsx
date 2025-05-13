@@ -2,9 +2,8 @@
 
 import Link from "next/link";
 import ThemeProvider from "./theme-provider";
-import { MouseEvent, useEffect, useState } from "react";
-import { usePathname, useRouter } from "next/navigation";
-import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
+import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import useSWR from "swr";
 import { Post } from "./blog-page/get-posts";
 import RouterLink from "./router-link";
@@ -52,8 +51,6 @@ const NavLink = ({
 	indicator?: React.ReactNode;
 	active?: boolean;
 }) => {
-	const router = useRouter();
-
 	return (
 		<RouterLink
 			href={href}
