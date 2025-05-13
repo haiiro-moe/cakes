@@ -147,6 +147,9 @@
 		font-optical-sizing: auto;
 		font-variation-settings: "wdth" 100, "GRAD" 0;
 	}
+	.font-drawing {
+		font-family: var(--font-shadows-into-light);
+	}
 	.text-gradient {
 		background: linear-gradient(
 			to right,
