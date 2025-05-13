@@ -7,31 +7,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 import useSWR from "swr";
 import { Post } from "./blog-page/get-posts";
-
-const handleRouting = (
-	event: MouseEvent<HTMLAnchorElement>,
-	href: string,
-	router: AppRouterInstance
-) => {
-	event.preventDefault();
-	const page = document.querySelector(".page-root");
-	if (page) {
-		// Get the current page name and test if it is the same as the place we are going
-		const currentPage = document.documentElement.getAttribute("data-page");
-		console.log("currentPage", currentPage);
-		console.log("href", href);
-
-		if (currentPage === href) {
-			console.log("Same page, no need to navigate");
-			// If it is the same, we don't need to do anything
-			return;
-		}
-		page.classList.add("page-detransition");
-		setTimeout(() => {
-			router.push(href);
-		}, 150);
-	}
-};
+import RouterLink from "./router-link";
 
 const NavLinkMobile = ({
 	href,
@@ -44,13 +20,10 @@ const NavLinkMobile = ({
 	indicator?: React.ReactNode;
 	active?: boolean;
 }) => {
-	const router = useRouter();
-
 	return (
 		<li>
-			<Link
+			<RouterLink
 				href={href}
-				onClick={(e) => handleRouting(e, href, router)}
 				className={
 					"w-full" +
 					(indicator ? " indicator" : "") +
@@ -63,7 +36,7 @@ const NavLinkMobile = ({
 					</span>
 				)}
 				{children}
-			</Link>
+			</RouterLink>
 		</li>
 	);
 };
@@ -82,9 +55,8 @@ const NavLink = ({
 	const router = useRouter();
 
 	return (
-		<Link
+		<RouterLink
 			href={href}
-			onClick={(e) => handleRouting(e, href, router)}
 			className={
 				"join-item btn hover:scale-105 transition-[scale]" +
 				(indicator ? " indicator" : "") +
@@ -101,7 +73,7 @@ const NavLink = ({
 				</span>
 			)}
 			{children}
-		</Link>
+		</RouterLink>
 	);
 };
 
