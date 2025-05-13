@@ -4,6 +4,7 @@ import { Post } from "@/components/blog-page/get-posts";
 import PostCard from "@/components/blog-page/post-card";
 import RandomQuote from "@/components/home-page/random-quote";
 import { useEffect, useState } from "react";
+import Masonry from "react-masonry-css";
 import useSWR from "swr";
 
 async function fetcher(
@@ -141,11 +142,19 @@ export default function BlogPage() {
 					)}
 					{/* TODO: Group the posts */}
 					{posts && (
-						<div className="gap-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mx-auto max-w-5xl">
+						<Masonry
+							breakpointCols={{
+								default: 3,
+								1100: 2,
+								700: 1,
+							}}
+							className="masonry-grid mx-auto max-w-6xl"
+							columnClassName="masonry-grid_column"
+						>
 							{posts.map((post: Post) => (
 								<PostCard key={post.slug} post={post} />
 							))}
-						</div>
+						</Masonry>
 					)}
 				</div>
 			</section>

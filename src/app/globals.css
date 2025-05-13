@@ -187,6 +187,7 @@
 			transform: translateY(10px);
 		}
 	}
+
 	.page-transition {
 		animation: page-transition 0.15s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 	}
@@ -239,6 +240,22 @@
 	}
 	.post-content h5::before {
 		content: "H5";
+	}
+
+	.masonry-grid {
+		display: -webkit-box; /* Not needed if autoprefixing */
+		display: -ms-flexbox; /* Not needed if autoprefixing */
+		display: flex;
+		margin-left: -1rem; /* gutter size offset */
+		width: auto;
+	}
+	.masonry-grid_column {
+		padding-left: 1rem; /* gutter size */
+		background-clip: padding-box;
+	}
+	.masonry-grid_column > .blog-card {
+		background: var(--color-base-100);
+		margin-bottom: 1rem;
 	}
 }
 
