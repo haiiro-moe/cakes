@@ -1,3 +1,4 @@
+import OnlineDisplay from "@/components/home-page/online-display";
 import ProjectCards from "@/components/home-page/project-cards";
 import RandomQuote from "@/components/home-page/random-quote";
 import { Endpoints } from "@octokit/types";
@@ -61,12 +62,7 @@ export default async function Home() {
 				<div className="mx-auto mt-48 pb-16 container">
 					<h1 className="relative w-fit font-serif font-extralight text-8xl">
 						Welcome to <span className="text-gradient">~cakes</span>
-						<div className="hidden lg:block -top-[1.25ch] -right-[1ch] absolute arrow">
-							<div className="inline-block font-drawing text-xl tracking-wide rotate-12">
-								I&apos;m{" "}
-								<span className="text-green-400">online</span>!
-							</div>
-						</div>
+						<OnlineDisplay />
 					</h1>
 					<div className="mx-3 w-full">
 						<p className="mt-4 max-w-lg text-2xl">
