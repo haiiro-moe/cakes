@@ -1,4 +1,5 @@
 export default function Footer() {
+	// TODO: Actual content here.
 	return (
 		<footer className="bg-base-100 h-[250px] text-base-content footer footer-center">
 			<div>

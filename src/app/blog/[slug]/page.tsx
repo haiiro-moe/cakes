@@ -16,7 +16,7 @@ export async function generateMetadata(
 
 	// fetch post information
 	// TODO: LOCALHOST HERE. PLEASE PLEASE PLEASE DONT FORGET ABOUT THIS.
-	const post = await fetch(`http://localhost:3001/api/blog/posts`)
+	const post = await fetch(`http://localhost:3000/api/blog/posts`)
 		.then((res) => {
 			if (!res.ok) {
 				throw new Error("Failed to fetch data");
