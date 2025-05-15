@@ -159,7 +159,7 @@ export default function AboutPage() {
 								},
 								{
 									name: "Taishi",
-									link: "https://www.youtube.com/@Taishi",
+									link: "https://compllege.bandcamp.com/",
 									image: "https://safe.haiiro.moe/WIXGYqnCMt8t.jpg",
 								},
 								{
@@ -171,11 +171,12 @@ export default function AboutPage() {
 							return artists.map((artist, index) => (
 								<li
 									key={index}
-									className="hover:bg-base-300 list-row"
+									className="flex hover:bg-base-300 p-0 transition duration-200 ease-in-out list-row"
 								>
 									<RouterLink
 										href={artist.link}
-										className="flex items-center"
+										className="flex items-center p-3 w-full h-full"
+										target="_blank"
 									>
 										<Image
 											width={64}
