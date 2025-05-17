@@ -88,3 +88,53 @@ export async function GET(request: Request) {
 		headers: { "Content-Type": "application/json" },
 	});
 }
+
+export async function POST(request: Request) {
+	const adminKey = process.env.BLOG_ADMIN_KEY;
+	if (!adminKey) {
+		return new Response("Admin key not set", {
+			status: 500,
+			headers: { "Content-Type": "text/plain" },
+		});
+	}
+	const body = await request.json();
+	if (body.adminKey !== adminKey) {
+		return new Response("Invalid admin key", {
+			status: 401,
+			headers: { "Content-Type": "text/plain" },
+		});
+	}
+	if (!body.post) {
+		return new Response("Post not found", {
+			status: 400,
+			headers: { "Content-Type": "text/plain" },
+		});
+	}
+	const { title, slug, description, date, type, tags, content } = body.post;
+	if (!title || !slug || !description || !date || !type || !content) {
+		return new Response("Missing required fields", {
+			status: 400,
+			headers: { "Content-Type": "text/plain" },
+		});
+	}
+	if (posts.posts.find((post) => post.slug === slug)) {
+		return new Response("Post with this slug already exists", {
+			status: 400,
+			headers: { "Content-Type": "text/plain" },
+		});
+	}
+	posts.posts.push({
+		title,
+		slug,
+		description,
+		date,
+		type,
+		tags: tags || [],
+		content,
+	});
+	posts.initiatedAt = new Date();
+	posts.savePosts();
+	return new Response("Post created", {
+		headers: { "Content-Type": "text/plain" },
+	});
+}
