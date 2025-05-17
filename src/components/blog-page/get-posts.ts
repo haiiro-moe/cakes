@@ -83,4 +83,25 @@ export class CakePosts {
 			);
 		});
 	}
+
+	public savePosts(): void {
+		const postsDirectory = path.join(process.cwd(), "posts");
+		this.posts.forEach((post) => {
+			const fullPath = path.join(postsDirectory, `${post.slug}.md`);
+			const fileContents = `---
+title: ${post.title}
+description: ${post.description}
+slug: ${post.slug}
+image: ${post.image}
+date: ${post.date}
+type: ${post.type}
+tags: ${post.tags.join(",")}
+---
+${post.content}
+			`;
+			fs.writeFileSync(fullPath, fileContents, "utf8");
+		});
+		this.initiatedAt = new Date();
+		this.posts = this.getPosts();
+	}
 }
