@@ -170,6 +170,21 @@
 		);
 	}
 
+	@keyframes blog-image__appear {
+		0% {
+			opacity: 0;
+			transform: translateY(10px);
+		}
+		100% {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+	.blog-image {
+		animation: blog-image__appear 0.15s cubic-bezier(0.4, 0, 0.2, 1)
+			forwards;
+	}
+
 	@keyframes page-transition {
 		0% {
 			opacity: 0;
