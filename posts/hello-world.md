@@ -6,8 +6,8 @@ image: hello-world.jpg
 date: 2023-11-19 10:30:00+0100
 ---
 
-> This was my first post. The site has since been rewritten using my
-> own static site generator.
+> This was my first post. ~~The site has since been rewritten using my
+> own static site generator.~~ Twice, actually. Now it's using Next.js.
 
 # Hello World.
 
