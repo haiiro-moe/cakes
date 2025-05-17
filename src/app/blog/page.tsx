@@ -2,6 +2,7 @@
 
 import { Post } from "@/components/blog-page/get-posts";
 import PostCard from "@/components/blog-page/post-card";
+import Container from "@/components/container";
 import RandomQuote from "@/components/home-page/random-quote";
 // import { Metadata } from "next";
 import { useEffect, useState } from "react";
@@ -121,72 +122,65 @@ export default function BlogPage() {
 
 	return (
 		<main className="flex flex-col mx-auto w-full page-transition blog page-root">
-			<section className="flex flex-col border-b border-base-300 w-full blob">
-				<div className="mx-auto mt-48 pb-16 container">
-					<h1 className="font-serif font-extralight text-8xl">
-						The <span className="text-gradient">blog</span> page.
-					</h1>
-					<div className="mx-3">
-						<p className="mt-4 max-w-lg text-2xl">
-							{!tags && !search && !before && !after && (
-								<>
-									Lots of text with not a whole lot of
-									thought. Imagine{" "}
-									<span className="italic">that</span>{" "}
-									keyboard cat gif here.
-								</>
-							)}
-							{/* TODO: Properly display the filters */}
-							{(tags || search || before || after) && (
-								<>
-									You are searching for{" "}
-									<span className="italic">
-										{tags || search || before || after}
-									</span>
-									.
-								</>
-							)}
-						</p>
+			<Container asSection bgVariant margin={48} blob>
+				<h1 className="font-serif font-extralight text-8xl">
+					The <span className="text-gradient">blog</span> page.
+				</h1>
+				<div className="mx-3">
+					<p className="mt-4 max-w-lg text-2xl">
+						{!tags && !search && !before && !after && (
+							<>
+								Lots of text with not a whole lot of thought.
+								Imagine <span className="italic">that</span>{" "}
+								keyboard cat gif here.
+							</>
+						)}
+						{/* TODO: Properly display the filters */}
+						{(tags || search || before || after) && (
+							<>
+								You are searching for{" "}
+								<span className="italic">
+									{tags || search || before || after}
+								</span>
+								.
+							</>
+						)}
+					</p>
+				</div>
+			</Container>
+			<Container asSection>
+				<h1 className="mb-10 font-semibold text-6xl">My posts</h1>
+				{/* TODO: Filtering */}
+				{isLoading && (
+					<div className="font-serif text-5xl text-center">
+						Loading...
 					</div>
-				</div>
-			</section>
-			<section className="flex flex-col bg-base-100 border-b border-base-300 w-full">
-				<div className="relative flex flex-col mx-auto mt-16 pb-16 text-left container">
-					<h1 className="mb-10 font-semibold text-6xl">My posts</h1>
-					{/* TODO: Filtering */}
-					{isLoading && (
-						<div className="font-serif text-5xl text-center">
-							Loading...
-						</div>
-					)}
-					{error && (
-						<div className="font-serif text-5xl text-center">
-							There was an error fetching the posts.
-						</div>
-					)}
-					{/* TODO: Group the posts */}
-					{posts && (
-						<Masonry
-							breakpointCols={{
-								default: 3,
-								1100: 2,
-								700: 1,
-							}}
-							className="masonry-grid mx-auto max-w-6xl"
-							columnClassName="masonry-grid_column"
-						>
-							{posts.map((post: Post) => (
-								<PostCard key={post.slug} post={post} />
-							))}
-						</Masonry>
-					)}
-				</div>
-			</section>
-			<section className="flex flex-col border-b border-base-300 w-full">
-				<div className="mx-auto mt-16 pb-16 container">
-					<RandomQuote />
-				</div>
-			</section>
+				)}
+				{error && (
+					<div className="font-serif text-5xl text-center">
+						There was an error fetching the posts.
+					</div>
+				)}
+				{/* TODO: Group the posts */}
+				{posts && (
+					<Masonry
+						breakpointCols={{
+							default: 3,
+							1100: 2,
+							700: 1,
+						}}
+						className="masonry-grid mx-auto max-w-6xl"
+						columnClassName="masonry-grid_column"
+					>
+						{posts.map((post: Post) => (
+							<PostCard key={post.slug} post={post} />
+						))}
+					</Masonry>
+				)}
+			</Container>
+			<Container asSection bgVariant>
+				<RandomQuote />
+			</Container>
 		</main>
 	);
 }

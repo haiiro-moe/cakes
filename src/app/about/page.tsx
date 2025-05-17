@@ -1,4 +1,5 @@
 import SocialLink from "@/components/about-page/social-link";
+import Container from "@/components/container";
 import RandomQuote from "@/components/home-page/random-quote";
 import RouterLink from "@/components/router-link";
 import { ExternalLink } from "lucide-react";
@@ -35,8 +36,7 @@ export async function generateMetadata(
 export default function AboutPage() {
 	return (
 		<main className="flex flex-col mx-auto w-full page-transition blog page-root">
-			<section className="flex flex-col border-b border-base-300 w-full blob">
-				<div className="mx-auto mt-48 pb-16 container">
+			<Container asSection bgVariant margin={48} blob>
 					<h1 className="font-serif font-extralight text-8xl">
 						So. <span className="text-gradient">Who am I?</span>
 					</h1>
@@ -46,10 +46,8 @@ export default function AboutPage() {
 							<em>(Or don&apos;t, who am I to tell you)</em>
 						</p>
 					</div>
-				</div>
-			</section>
-			<section className="flex flex-col bg-base-100 border-b border-base-300 w-full">
-				<div className="relative flex flex-col mx-auto mt-16 pb-16 text-left container">
+			</Container>
+			<Container asSection>
 					<h1
 						className="my-4 font-serif font-light text-6xl"
 						id="who-am-i"
@@ -64,29 +62,29 @@ export default function AboutPage() {
 								new Date("2002-10-16").getTime()) /
 								(1000 * 60 * 60 * 24 * 365.25)
 						)}
-						-year-old computer science student. I made this site
-						because I wanted my own little space on the web.
-						It&apos;s so incredibly boring to see so many websites
-						that are just the same two colors with an algorithm that
-						controls everything you see and hear. I absolutely love
-						making stuff, so I thought... why not just make stuff{" "}
-						<em>and</em> share it with the world?
+					-year-old computer science student. I made this site because
+					I wanted my own little space on the web. It&apos;s so
+					incredibly boring to see so many websites that are just the
+					same two colors with an algorithm that controls everything
+					you see and hear. I absolutely love making stuff, so I
+					thought... why not just make stuff <em>and</em> share it
+					with the world?
 					</p>
 					<p className="my-4">
 						The fact that this is the internet now is kind of... I
-						don&apos;t know, unsettling...? Concerning? It&apos;s
-						not like I&apos;m completely against AI and all this,
-						but come on, we can do so much better than just
-						completely replace the human touch.{" "}
+					don&apos;t know, unsettling...? Concerning? It&apos;s not
+					like I&apos;m completely against AI and all this, but come
+					on, we can do so much better than just completely replace
+					the human touch.{" "}
 						<span className="text-xs text-base-300">
 							written using github copilot (/s)
 						</span>
 					</p>
 					<p className="my-4">
 						Long story short, me and social media do not go well
-						together, and I wanted to make a space just for myself,
-						so I made this site. The previous version was made using
-						pure HTML and CSS using a custom build system (
+					together, and I wanted to make a space just for myself, so I
+					made this site. The previous version was made using pure
+					HTML and CSS using a custom build system (
 						<RouterLink
 							href="https://github.com/Kex1016/haiiro"
 							className="link link-primary"
@@ -94,12 +92,11 @@ export default function AboutPage() {
 							that I have right here
 							<ExternalLink className="inline ml-1" size={10} />
 						</RouterLink>
-						). I always wanted to make something using Next.js, and
-						the previous version was a little bit clunky, so I
-						straight up remade the whole thing using Next.js, React,
-						Tailwind CSS and DaisyUI. Now that I have a properly
-						made identity for this site, I hope to make even more
-						cool stuff with it!
+					). I always wanted to make something using Next.js, and the
+					previous version was a little bit clunky, so I straight up
+					remade the whole thing using Next.js, React, Tailwind CSS
+					and DaisyUI. Now that I have a properly made identity for
+					this site, I hope to make even more cool stuff with it!
 					</p>
 					<h1
 						className="my-4 font-serif font-light text-6xl"
@@ -108,36 +105,34 @@ export default function AboutPage() {
 						Why <span className="text-gradient">cakes</span>?
 					</h1>
 					<p className="my-4">
-						This was a question a bunch of people asked me, so I
-						will write it at the top. One of my first actual online
-						nicknames was &quot;Kex1016&quot;, which pretty much
-						just meant &quot;keksz&quot; in Hungarian, or
-						&quot;biscuit&quot; in English. Because I like them.
-						Then, someone started calling me &quot;cakes&quot; on
-						Discord, because it sounds almost the same. I thought it
-						was pretty funny, so when I finally decided to change my
-						nickname on AniList to something else, I just went with
-						&quot;cakes&quot;. I did not expect it to be free to
-						take.
+					This was a question a bunch of people asked me, so I will
+					write it at the top. One of my first actual online nicknames
+					was &quot;Kex1016&quot;, which pretty much just meant
+					&quot;keksz&quot; in Hungarian, or &quot;biscuit&quot; in
+					English. Because I like them. Then, someone started calling
+					me &quot;cakes&quot; on Discord, because it sounds almost
+					the same. I thought it was pretty funny, so when I finally
+					decided to change my nickname on AniList to something else,
+					I just went with &quot;cakes&quot;. I did not expect it to
+					be free to take.
 					</p>
 					<h1 className="my-4 font-serif font-light text-6xl">
 						What do I <span className="text-gradient">like</span>?
 					</h1>
 					<p className="my-4">
-						I think it&apos;s pretty obvious that I like
-						programming, and animanga. I also really like reading
-						and playing all sorts of games. My taste in latter two
-						is veery broad, but I tend to gravitate towards chill
-						stuff. In terms of games, I love playing all sorts of
-						indie games, mostly roguelikes, RPGs and shooter games.
-						I also play League of Legends, but only if I have
-						someone to play with...
+					I think it&apos;s pretty obvious that I like programming,
+					and animanga. I also really like reading and playing all
+					sorts of games. My taste in latter two is veery broad, but I
+					tend to gravitate towards chill stuff. In terms of games, I
+					love playing all sorts of indie games, mostly roguelikes,
+					RPGs and shooter games. I also play League of Legends, but
+					only if I have someone to play with...
 					</p>
 					<p>
-						I LOVE MUSIC. I listen to <em>everything</em>. And I
-						mean it. Classical, metal, lo-fi, tons and tons of
-						electronic music, rap, pop, rock, you name it. Some
-						standout artists for me are:
+					I LOVE MUSIC. I listen to <em>everything</em>. And I mean
+					it. Classical, metal, lo-fi, tons and tons of electronic
+					music, rap, pop, rock, you name it. Some standout artists
+					for me are:
 					</p>
 					<ul className="bg-base-200 shadow-md mx-auto mt-4 rounded-box w-fit list">
 						{(() => {
@@ -278,12 +273,10 @@ export default function AboutPage() {
 						</div>
 					</div>
 				</div>
-			</section>
-			<section className="flex flex-col border-b border-base-300 w-full">
-				<div className="mx-auto mt-16 pb-16 container">
+			</Container>
+			<Container asSection bgVariant>
 					<RandomQuote />
-				</div>
-			</section>
+			</Container>
 		</main>
 	);
 }
