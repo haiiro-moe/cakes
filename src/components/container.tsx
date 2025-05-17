@@ -6,6 +6,7 @@ export default function Container({
 	blob = false,
 	textAlign = "left",
 	relative = false,
+	outerRelative = false,
 }: {
 	children: React.ReactNode;
 	margin?: 16 | 48;
@@ -14,17 +15,19 @@ export default function Container({
 	blob?: boolean;
 	textAlign?: "left" | "center" | "right";
 	relative?: boolean;
+	outerRelative?: boolean;
 }) {
 	const marginClass = `mt-${margin} pb-16`;
 	const textAlignClass = `text-${textAlign}`;
 	const blobClass = blob ? "blob" : "";
 	const relativeClass = relative ? "relative" : "";
+	const outerRelativeClass = outerRelative ? "relative" : "";
 
 	if (bgVariant) {
 		if (asSection) {
 			return (
 				<section
-					className={`flex flex-col border-b border-base-300 w-full ${blobClass}`}
+					className={`flex flex-col border-b border-base-300 w-full ${blobClass} ${outerRelativeClass}`}
 				>
 					<div
 						className={`mx-auto max-w-7xl container ${marginClass} ${textAlignClass} ${relativeClass}`}
@@ -37,7 +40,7 @@ export default function Container({
 
 		return (
 			<div
-				className={`flex flex-col border-b border-base-300 w-full ${blobClass}`}
+				className={`flex flex-col border-b border-base-300 w-full ${blobClass} ${outerRelativeClass}`}
 			>
 				<div
 					className={`mx-auto max-w-7xl container ${marginClass} ${textAlignClass} ${relativeClass}`}
@@ -51,7 +54,7 @@ export default function Container({
 	if (asSection) {
 		return (
 			<section
-				className={`flex flex-col bg-base-100 border-b border-base-300 w-full ${blobClass}`}
+				className={`flex flex-col bg-base-100 border-b border-base-300 w-full ${blobClass} ${outerRelativeClass}`}
 			>
 				<div
 					className={`mx-auto max-w-7xl container ${marginClass} ${textAlignClass} ${relativeClass}`}
@@ -64,7 +67,7 @@ export default function Container({
 
 	return (
 		<div
-			className={`flex flex-col bg-base-100 border-b border-base-300 w-full ${blobClass}`}
+			className={`flex flex-col bg-base-100 border-b border-base-300 w-full ${blobClass} ${outerRelativeClass}`}
 		>
 			<div
 				className={`mx-auto max-w-7xl container ${marginClass} ${textAlignClass} ${relativeClass}`}
