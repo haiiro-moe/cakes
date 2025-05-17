@@ -11,6 +11,9 @@ import { ChevronLeft, ExternalLink } from "lucide-react";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeSlug from "rehype-slug";
 import { MouseEvent, useEffect } from "react";
+import Image from "next/image";
+import Container from "../container";
+import remarkGfm from "remark-gfm";
 
 function goToHeading(targetId: string) {
 	const targetElement = document.getElementById(targetId);
@@ -141,51 +144,64 @@ export default function PostContent({ slug }: { slug: string }) {
 
 	return (
 		<>
-			<section className="flex flex-col border-b border-base-300 w-full blob">
-				<div className="mx-auto mt-40 pb-16 container">
-					<Link href="/blog" className="mb-3 btn btn-ghost">
-						<ChevronLeft size={20} />
-						Back to posts
-					</Link>
-					<h1 className="font-serif font-extralight text-8xl">
-						{response && response[0] && response[0].title}
-					</h1>
-					<div className="mx-3">
-						<p className="mt-4 max-w-lg text-2xl">
-							{response && response[0] && response[0].description}
-						</p>
-						<p>
-							{response &&
-								response[0] &&
-								new Date(response[0].date).toLocaleDateString(
-									"en-US",
-									{
-										year: "numeric",
-										month: "long",
-										day: "numeric",
-									}
-								)}
-							{response[0].tags &&
-								response[0].tags.length > 0 && (
-									<span className="text-gray-500 text-sm">
-										{" "}
-										-{" "}
-										{response[0].tags
-											.map((tag) => `#${tag}`)
-											.join(", ")}
-									</span>
-								)}
-						</p>
+			<Container asSection bgVariant margin={48} blob outerRelative>
+				{response && response[0] && response[0].image && (
+					/* An image that starts transparent in the first half with a gradient effect
+					   - Using a background image with a gradient overlay to clip the image
+					   - Mask the image to create a gradient effect
+					 */
+					<div className="image-container">
+						<Image
+							src={`/posts/${response[0].image}`}
+							alt="Post Image"
+							className="top-0 left-0 -z-[1] absolute mask-l-to-50% blur-xs rounded-lg w-full h-full object-cover blog-image"
+							width={1920}
+							height={1080}
+							priority
+						/>
 					</div>
+				)}
+				<Link href="/blog" className="mb-3 btn btn-ghost">
+					<ChevronLeft size={20} />
+					Back to posts
+				</Link>
+				<h1 className="font-serif font-extralight text-8xl">
+					{response && response[0] && response[0].title}
+				</h1>
+				<div className="mx-3">
+					<p className="mt-4 max-w-lg text-2xl">
+						{response && response[0] && response[0].description}
+					</p>
+					<p>
+						{response &&
+							response[0] &&
+							new Date(response[0].date).toLocaleDateString(
+								"en-US",
+								{
+									year: "numeric",
+									month: "long",
+									day: "numeric",
+								}
+							)}
+						{response[0].tags && response[0].tags.length > 0 && (
+							<span className="text-gray-500 text-sm">
+								{" "}
+								-{" "}
+								{response[0].tags
+									.map((tag) => `#${tag}`)
+									.join(", ")}
+							</span>
+						)}
+					</p>
 				</div>
-			</section>
+			</Container>
 			<section className="flex flex-col bg-base-100 border-b border-base-300 w-full">
 				<div className="relative flex flex-col mx-auto mt-16 pb-16 text-left container">
 					{/* Render the post content */}
 					{response && response[0] && (
 						<div className="post-content">
 							<Markdown
-								remarkPlugins={[remarkMath]}
+								remarkPlugins={[remarkMath, remarkGfm]}
 								rehypePlugins={[
 									rehypeKatex,
 									rehypeRaw,
