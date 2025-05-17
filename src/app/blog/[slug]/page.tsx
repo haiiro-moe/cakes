@@ -2,21 +2,32 @@ import type { Post } from "@/components/blog-page/get-posts";
 import PostContent from "@/components/blog-page/post-content";
 import RandomQuote from "@/components/home-page/random-quote";
 import type { Metadata, ResolvingMetadata } from "next";
+import { headers } from "next/headers";
 
 type Props = {
 	params: Promise<{ slug: string }>;
 };
 
+let metadataCache: Metadata | null = null;
+
 export async function generateMetadata(
 	{ params }: Props,
 	parent: ResolvingMetadata
 ): Promise<Metadata> {
+	if (metadataCache) {
+		return metadataCache;
+	}
+
 	const slug = (await params).slug;
 	const parentMeta = await parent;
 
 	// fetch post information
-	// TODO: LOCALHOST HERE. PLEASE PLEASE PLEASE DONT FORGET ABOUT THIS.
-	const post = await fetch(`http://localhost:3000/api/blog/posts`)
+	const hdrs = await headers();
+	const host = hdrs.get("x-forwarded-host") || hdrs.get("host");
+	const protocol = hdrs.get("x-forwarded-proto") || "http";
+	const origin = `${protocol}://${host}`;
+	const url = new URL("/api/blog/posts", origin);
+	const post = await fetch(url.toString())
 		.then((res) => {
 			if (!res.ok) {
 				throw new Error("Failed to fetch data");
@@ -37,7 +48,7 @@ export async function generateMetadata(
 			return post;
 		});
 
-	return {
+	const metadata: Metadata = {
 		...(parentMeta as Metadata),
 		title: `~cakes - ${post.title}`,
 		description: post.description,
@@ -66,6 +77,10 @@ export async function generateMetadata(
 			],
 		},
 	};
+
+	metadataCache = metadata;
+
+	return metadata;
 }
 
 export default async function BlogPostPage({ params }: Props) {
