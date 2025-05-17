@@ -105,7 +105,7 @@ export default async function Home() {
 					<li>
 						I tend to make things extra for even the simplest tasks.
 					</li>
-					<li>I’m a big fan of animanga and witches.</li>
+					<li>I&apos;m a big fan of animanga and witches.</li>
 					<li>I like chatting about my interests.</li>
 				</ul>
 			</Container>
