@@ -13,5 +13,15 @@
 	},
 	"[json]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	}
+	},
+	"cSpell.words": [
+		"animanga",
+		"Asuka",
+		"extralight",
+		"haiiro",
+		"Raine",
+		"roguelikes",
+		"Swardy",
+		"Taishi"
+	]
 }
