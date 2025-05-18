@@ -1,7 +1,7 @@
 "use client";
 
 import { Endpoints } from "@octokit/types";
-import { CSSProperties, useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const getRandomColor = () => {
 	const colors = [
@@ -45,14 +45,12 @@ const GitHubCard = ({
 	description,
 	language,
 	url,
-	style,
 }: {
 	id: number;
 	name: string;
 	description: string;
 	language: string;
 	url: string;
-	style?: React.CSSProperties;
 }) => {
 	const randomColor = getRandomColor();
 
@@ -60,8 +58,7 @@ const GitHubCard = ({
 		<div
 			key={id}
 			id={`project-card-${id}`}
-			className={`shadow-xl w-96 card ${randomColor.background} ${randomColor.text} hover:z-10 hover:scale-105`}
-			style={style}
+			className={`shadow-xl w-96 card ${randomColor.background} ${randomColor.text} opacity-90 hover:opacity-100 transition-opacity duration-300 ease-in-out min-w-[280px] min-h-[200px]`}
 		>
 			<div className="card-body">
 				<h2 className="card-title">{name}</h2>
@@ -91,6 +88,8 @@ export default function ProjectCards({
 }: {
 	projects?: Endpoints["GET /users/{username}/repos"]["response"]["data"];
 }) {
+	const containerRef = useRef<HTMLDivElement | null>(null);
+
 	const [cards, setCards] = useState<
 		{
 			id: number;
@@ -98,7 +97,6 @@ export default function ProjectCards({
 			description: string;
 			url: string;
 			language: string;
-			style: CSSProperties;
 		}[]
 	>([]);
 
@@ -115,57 +113,8 @@ export default function ProjectCards({
 		const newCards = [];
 		const container = document.getElementById("project-cards");
 		if (container) {
-			const containerWidth = container.clientWidth;
-			const containerHeight = container.clientHeight;
-
-			for (const project of projects) {
-				const card = document.getElementById(
-					`project-card-${project.id}`
-				);
-				const cardWidth = card?.clientWidth || 300; // Default width if card is not found
-				const cardHeight = card?.clientHeight || 200; // Default height if card is not found
-				let x = Math.random() * (containerWidth - cardWidth - 20) + 10;
-				let y =
-					Math.random() * (containerHeight - cardHeight - 20) + 10;
-
-				// Check for overlap with existing cards
-				const tolerance = 200; // Tolerance for overlap
-				for (let j = 0; j < newCards.length; j++) {
-					const card = newCards[j];
-
-					// Convert string to number for comparison
-					const cardLeft = parseFloat(
-						card.style.left?.toString().replace("px", "").trim() ||
-							"0"
-					);
-					const cardTop = parseFloat(
-						card.style.top?.toString().replace("px", "").trim() ||
-							"0"
-					);
-
-					if (
-						Math.abs(x - cardLeft) < tolerance &&
-						Math.abs(y - cardTop) < tolerance
-					) {
-						x =
-							Math.random() * (containerWidth - cardWidth - 20) +
-							10;
-						y =
-							Math.random() *
-								(containerHeight - cardHeight - 20) +
-							10;
-						j = -1; // Restart the loop to check for overlaps again
-					}
-				}
-
-				const style: CSSProperties = {
-					position: "absolute",
-					left: `${x}px`,
-					top: `${y}px`,
-					width: `${cardWidth}px`,
-					height: `${cardHeight}px`,
-					transition: "scale 0.15s ease-in-out",
-				};
+			for (let i = 0; i < projects.length; i++) {
+				const project = projects[i];
 
 				newCards.push({
 					id: project.id,
@@ -173,17 +122,48 @@ export default function ProjectCards({
 					description: `${project.description || "No description"}`,
 					url: `${project.html_url}`,
 					language: `${project.language || "N/A"}`,
-					style,
 				});
 			}
 			setCards(newCards);
 		}
+
+		const el = containerRef.current;
+		if (!el) return;
+		const speed = 1.5; // Adjust this value to control the scroll speed
+
+		const onWheel = (e: WheelEvent) => {
+			// Only hijack primarily-vertical wheel events
+			if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
+
+			// compute bounds
+			const maxScrollLeft = el.scrollWidth - el.clientWidth;
+			const atStart = el.scrollLeft <= 0;
+			const atEnd = el.scrollLeft >= maxScrollLeft;
+
+			// If scrolling up but already at start, or down but at end, ignore
+			if ((e.deltaY < 0 && atStart) || (e.deltaY > 0 && atEnd)) {
+				return;
+			}
+
+			// Otherwise reroute scroll
+			e.preventDefault();
+			el.scrollLeft += e.deltaY * speed;
+		};
+
+		el.addEventListener("wheel", onWheel, { passive: false });
+		return () => {
+			el.removeEventListener("wheel", onWheel);
+		};
 	}, [projects]);
 
 	return (
 		<div
-			className="relative flex flex-col items-center mx-3 mt-5 min-h-[500px]"
+			ref={containerRef}
+			className="relative flex flex-row items-center gap-4 mx-3 mt-5 pb-2 overflow-x-scroll overflow-y-auto scroll-smooth scrollbar-hide"
 			id="project-cards"
+			onScrollCapture={(e) => {
+				// if scrolling up and down on this element, make sure to scroll sideways
+			}}
 		>
 			{cards.map((card) => (
 				<GitHubCard
@@ -193,7 +173,6 @@ export default function ProjectCards({
 					description={card.description}
 					language={card.language}
 					url={card.url}
-					style={card.style}
 				/>
 			))}
 		</div>
