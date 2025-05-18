@@ -145,6 +145,14 @@ export default function AboutPage() {
 						!
 					</em>
 				</p>
+				<p>
+					I love challenges. Figuring things out has to be one of my
+					favorite things about programming. That feeling when you
+					solve a problem that you have been stuck on for hours is
+					just so incredibly satisfying. Learning new ways of doing
+					things or new languages is also up there on the list. I just
+					like making stuff.
+				</p>
 				<h1
 					className="my-4 font-serif font-light text-6xl"
 					id="why-cakes"
