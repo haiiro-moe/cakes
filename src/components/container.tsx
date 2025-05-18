@@ -9,7 +9,7 @@ export default function Container({
 	outerRelative = false,
 }: {
 	children: React.ReactNode;
-	margin?: 16 | 48;
+	margin?: 16 | 40 | 48;
 	bgVariant?: boolean;
 	asSection?: boolean;
 	blob?: boolean;
@@ -17,7 +17,21 @@ export default function Container({
 	relative?: boolean;
 	outerRelative?: boolean;
 }) {
-	const marginClass = `mt-${margin} pb-16`;
+	let marginClass = "";
+	switch (margin) {
+		case 16:
+			marginClass = "mt-16 pb-16";
+			break;
+		case 40:
+			marginClass = "mt-40 pb-16";
+			break;
+		case 48:
+			marginClass = "mt-48 pb-16";
+			break;
+		default:
+			marginClass = "mt-16 pb-16";
+	}
+
 	const textAlignClass = `text-${textAlign}`;
 	const blobClass = blob ? "blob" : "";
 	const relativeClass = relative ? "relative" : "";
