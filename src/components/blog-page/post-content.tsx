@@ -15,7 +15,7 @@ import Image from "next/image";
 import Container from "../container";
 import remarkGfm from "remark-gfm";
 
-function goToHeading(targetId: string) {
+export function goToHeading(targetId: string) {
 	const targetElement = document.getElementById(targetId);
 	if (targetElement) {
 		const offsetTop =
@@ -88,30 +88,26 @@ export default function PostContent({ slug }: { slug: string }) {
 	if (isLoading) {
 		return (
 			<>
-				<section className="flex flex-col border-b border-base-300 w-full blob">
-					<div className="mx-auto mt-40 pb-16 container">
-						<Link href="/blog" className="mb-3 btn btn-ghost">
-							<ChevronLeft size={20} />
-							Back to posts
-						</Link>
-						<h1 className="font-serif font-extralight text-8xl">
-							Loading post...
-						</h1>
-						<div className="mx-3">
-							<p className="mt-4 max-w-lg text-2xl">
-								Please wait while we fetch the post content.
-							</p>
-						</div>
+				<Container asSection bgVariant margin={40} blob>
+					<Link href="/blog" className="mb-3 btn btn-ghost">
+						<ChevronLeft size={20} />
+						Back to posts
+					</Link>
+					<h1 className="font-serif font-extralight text-8xl">
+						Loading post...
+					</h1>
+					<div className="mx-3">
+						<p className="mt-4 max-w-lg text-2xl">
+							Please wait while we fetch the post content.
+						</p>
 					</div>
-				</section>
-				<section className="flex flex-col bg-base-100 border-b border-base-300 w-full">
-					<div className="relative flex flex-col mx-auto mt-16 pb-16 text-left container">
-						<div className="pb-52 post-content">
-							There should be a post here, but unfortunately, it
-							is loading. Please wait a moment.
-						</div>
+				</Container>
+				<Container asSection>
+					<div className="pb-52 post-content">
+						There should be a post here, but unfortunately, it is
+						loading. Please wait a moment.
 					</div>
-				</section>
+				</Container>
 			</>
 		);
 	}
@@ -144,12 +140,8 @@ export default function PostContent({ slug }: { slug: string }) {
 
 	return (
 		<>
-			<Container asSection bgVariant margin={48} blob outerRelative>
+			<Container asSection bgVariant margin={40} blob outerRelative>
 				{response && response[0] && response[0].image && (
-					/* An image that starts transparent in the first half with a gradient effect
-					   - Using a background image with a gradient overlay to clip the image
-					   - Mask the image to create a gradient effect
-					 */
 					<div className="image-container">
 						<Image
 							src={`/posts/${response[0].image}`}
@@ -195,107 +187,102 @@ export default function PostContent({ slug }: { slug: string }) {
 					</p>
 				</div>
 			</Container>
-			<section className="flex flex-col bg-base-100 border-b border-base-300 w-full">
-				<div className="relative flex flex-col mx-auto mt-16 pb-16 text-left container">
-					{/* Render the post content */}
-					{response && response[0] && (
-						<div className="post-content">
-							<Markdown
-								remarkPlugins={[remarkMath, remarkGfm]}
-								rehypePlugins={[
-									rehypeKatex,
-									rehypeRaw,
-									rehypeSlug,
-									[
-										rehypeAutolinkHeadings,
-										{
-											behavior: "wrap",
-											properties: {
-												className:
-													"inline-flex heading-link",
-											},
+			<Container asSection>
+				{/* Render the post content */}
+				{response && response[0] && (
+					<div className="post-content">
+						<Markdown
+							remarkPlugins={[remarkMath, remarkGfm]}
+							rehypePlugins={[
+								rehypeKatex,
+								rehypeRaw,
+								rehypeSlug,
+								[
+									rehypeAutolinkHeadings,
+									{
+										behavior: "wrap",
+										properties: {
+											className:
+												"inline-flex heading-link",
 										},
-									],
-								]}
-								components={{
-									p: ({ ...props }) => (
-										<p
-											className="my-4 text-md"
+									},
+								],
+							]}
+							components={{
+								p: ({ ...props }) => (
+									<p className="my-4 text-md" {...props} />
+								),
+								h1: ({ ...props }) => (
+									<h1
+										className="my-4 font-serif text-5xl"
+										onClick={headingClickHandler}
+										{...props}
+									/>
+								),
+								h2: ({ ...props }) => (
+									<h2
+										className="my-4 font-serif text-4xl"
+										onClick={headingClickHandler}
+										{...props}
+									/>
+								),
+								h3: ({ ...props }) => (
+									<h3
+										className="my-4 text-3xl"
+										onClick={headingClickHandler}
+										{...props}
+									/>
+								),
+								h4: ({ ...props }) => (
+									<h4
+										className="my-4 text-2xl"
+										onClick={headingClickHandler}
+										{...props}
+									/>
+								),
+								h5: ({ ...props }) => (
+									<h5
+										className="my-4 text-xl"
+										onClick={headingClickHandler}
+										{...props}
+									/>
+								),
+								a: ({ ...props }) =>
+									props.className?.includes(
+										"heading-link"
+									) ? (
+										<a {...props} />
+									) : (
+										<a
+											className="inline-flex gap-0.5 link link-primary"
+											target="_blank"
+											rel="noopener noreferrer"
 											{...props}
-										/>
+										>
+											{props.children}
+											<ExternalLink size={12} />
+										</a>
 									),
-									h1: ({ ...props }) => (
-										<h1
-											className="my-4 font-serif text-5xl"
-											onClick={headingClickHandler}
-											{...props}
-										/>
-									),
-									h2: ({ ...props }) => (
-										<h2
-											className="my-4 font-serif text-4xl"
-											onClick={headingClickHandler}
-											{...props}
-										/>
-									),
-									h3: ({ ...props }) => (
-										<h3
-											className="my-4 text-3xl"
-											onClick={headingClickHandler}
-											{...props}
-										/>
-									),
-									h4: ({ ...props }) => (
-										<h4
-											className="my-4 text-2xl"
-											onClick={headingClickHandler}
-											{...props}
-										/>
-									),
-									h5: ({ ...props }) => (
-										<h5
-											className="my-4 text-xl"
-											onClick={headingClickHandler}
-											{...props}
-										/>
-									),
-									a: ({ ...props }) =>
-										props.className?.includes(
-											"heading-link"
-										) ? (
-											<a {...props} />
-										) : (
-											<a
-												className="inline-flex gap-0.5 link link-primary"
-												target="_blank"
-												rel="noopener noreferrer"
-												{...props}
-											>
-												{props.children}
-												<ExternalLink size={12} />
-											</a>
-										),
-									blockquote: ({ ...props }) => (
-										<div className="bg-base-200 shadow-sm my-5 border-primary border-l-4 card">
-											<div className="p-3 card-body">
-												<blockquote {...props} />
-											</div>
+								blockquote: ({ ...props }) => (
+									<div className="bg-base-200 shadow-sm my-5 border-primary border-l-4 card">
+										<div className="p-3 card-body">
+											<blockquote {...props} />
 										</div>
-									),
-									ul: ({ ...props }) => (
-										<ul
-											className="my-4 list-disc list-inside"
-											{...props}
-										/>
-									),
-								}}
-							>
-								{response[0].content}
-							</Markdown>
-						</div>
-					)}
-				</div>
-			</section>
+									</div>
+								),
+								ul: ({ ...props }) => (
+									<ul
+										className="my-4 list-disc list-inside"
+										{...props}
+									/>
+								),
+							}}
+						>
+							{response[0].content}
+						</Markdown>
+					</div>
+				)}
+			</Container>
 		</>
 	);
 }
