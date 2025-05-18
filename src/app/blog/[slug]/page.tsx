@@ -1,5 +1,6 @@
 import type { Post } from "@/components/blog-page/get-posts";
 import PostContent from "@/components/blog-page/post-content";
+import Container from "@/components/container";
 import RandomQuote from "@/components/home-page/random-quote";
 import type { Metadata, ResolvingMetadata } from "next";
 import { headers } from "next/headers";
@@ -89,11 +90,9 @@ export default async function BlogPostPage({ params }: Props) {
 	return (
 		<main className="flex flex-col mx-auto w-full page-transition blog page-root">
 			<PostContent slug={slug} />
-			<section className="flex flex-col border-b border-base-300 w-full">
-				<div className="mx-auto mt-16 pb-16 container">
-					<RandomQuote />
-				</div>
-			</section>
+			<Container asSection bgVariant>
+				<RandomQuote />
+			</Container>
 		</main>
 	);
 }
