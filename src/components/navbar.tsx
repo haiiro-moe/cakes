@@ -137,7 +137,7 @@ export default function Navbar() {
 	return (
 		<nav
 			className={
-				"top-0 left-0 z-50 fixed lg:px-32 w-full transition-all duration-300 ease-in-out" +
+				"top-0 left-0 z-50 fixed lg:px-32 w-full" +
 				(isOnTop ? "" : " lg:p-5")
 			}
 		>
@@ -149,7 +149,7 @@ export default function Navbar() {
 			></div>
 			<div
 				className={
-					"navbar flex justify-between items-center transition-all duration-300 ease-in-out" +
+					"navbar flex justify-between items-center" +
 					(isOnTop
 						? " bg-base-100/0 shadow-none border border-transparent"
 						: " bg-base-100/50 backdrop-blur-lg border border-base-300/50 shadow-sm")
