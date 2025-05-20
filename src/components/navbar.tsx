@@ -25,7 +25,7 @@ const NavLinkMobile = ({
 				href={href}
 				className={
 					"w-full" +
-					(indicator ? " indicator" : "") +
+					(indicator ? " relative indicator" : "") +
 					(active ? " active" : "")
 				}
 			>
@@ -149,7 +149,7 @@ export default function Navbar() {
 			></div>
 			<div
 				className={
-					"navbar flex justify-between items-center" +
+					"navbar w-full flex justify-between items-center" +
 					(isOnTop
 						? " bg-base-100/0 shadow-none border border-transparent"
 						: " bg-base-100/50 backdrop-blur-lg border border-base-300/50 shadow-sm")
@@ -178,7 +178,7 @@ export default function Navbar() {
 						</div>
 						<ul
 							tabIndex={0}
-							className="z-1 bg-base-100/50 shadow mt-3 p-2 w-full menu menu-sm dropdown-content"
+							className="z-1 bg-base-100/50 shadow mt-3 p-2 -left-3 w-svh backdrop-blur-sm menu menu-md dropdown-content border-b border-base-300 text-center"
 						>
 							<NavLinkMobile href="/" active={pathname == "/"}>
 								Home
