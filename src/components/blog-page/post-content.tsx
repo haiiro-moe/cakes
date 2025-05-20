@@ -115,7 +115,15 @@ export default function PostContent({ slug }: { slug: string }) {
 	if (error) {
 		return (
 			<div className="flex justify-center items-center min-h-[90vh] font-serif text-5xl">
-				There was an error fetching the post.
+				<div>
+					There was an error fetching the post.
+				</div>
+				<div>
+					<RouterLink href="/blog" className="btn btn-ghost">
+						<ChevronLeft size={20} />
+						Back to posts
+					</RouterLink>
+				</div>
 			</div>
 		);
 	}
@@ -157,11 +165,11 @@ export default function PostContent({ slug }: { slug: string }) {
 					<ChevronLeft size={20} />
 					Back to posts
 				</Link>
-				<h1 className="font-serif font-extralight text-8xl">
+				<h1 className="font-serif font-extralight text-6xl lg:text-8xl">
 					{response && response[0] && response[0].title}
 				</h1>
 				<div className="mx-3">
-					<p className="mt-4 max-w-lg text-2xl">
+					<p className="mt-4 max-w-lg text-xl lg:text-2xl">
 						{response && response[0] && response[0].description}
 					</p>
 					<p>
