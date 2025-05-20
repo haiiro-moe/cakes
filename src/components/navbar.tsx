@@ -115,7 +115,9 @@ const fetcher = (url: string): Promise<Post[]> =>
 export default function Navbar() {
 	const pathname = usePathname();
 
-	const { data: posts } = useSWR("/~cakes/api/blog/posts", (url) => fetcher(url));
+	const { data: posts } = useSWR("/~cakes/api/blog/posts", (url) =>
+		fetcher(url)
+	);
 
 	const [isOnTop, setIsOnTop] = useState(true);
 	const handleScroll = () => {
@@ -178,9 +180,12 @@ export default function Navbar() {
 						</div>
 						<ul
 							tabIndex={0}
-							className="z-1 bg-base-100/50 shadow mt-3 p-2 -left-3 w-svh backdrop-blur-sm menu menu-md dropdown-content border-b border-base-300 text-center"
+							className="-left-3 z-1 bg-base-100/50 shadow backdrop-blur-sm mt-3 p-2 border-b border-base-300 w-svh text-center menu menu-md dropdown-content"
 						>
-							<NavLinkMobile href="/" active={pathname == "/"}>
+							<NavLinkMobile
+								href="/"
+								active={pathname.replace(/\/$/, "") == "/"}
+							>
 								Home
 							</NavLinkMobile>
 							<NavLinkMobile
@@ -190,26 +195,31 @@ export default function Navbar() {
 										? undefined
 										: posts?.length
 								}
-								active={pathname == "/blog"}
+								active={pathname.replace(/\/$/, "") == "/blog"}
 							>
 								Blog
 							</NavLinkMobile>
 							<NavLinkMobile
 								href="/about"
-								active={pathname == "/about"}
+								active={pathname.replace(/\/$/, "") == "/about"}
 							>
 								About
 							</NavLinkMobile>
 							<NavLinkMobile
 								href="/projects"
-								active={pathname == "/projects"}
+								active={
+									pathname.replace(/\/$/, "") == "/projects"
+								}
 							>
 								Projects
 							</NavLinkMobile>
 						</ul>
 					</div>
 					<div className="hidden lg:block join">
-						<NavLink href="/" active={pathname == "/"}>
+						<NavLink
+							href="/"
+							active={pathname.replace(/\/$/, "") == "/"}
+						>
 							Home
 						</NavLink>
 						<NavLink
@@ -217,16 +227,19 @@ export default function Navbar() {
 							indicator={
 								posts?.length === 0 ? undefined : posts?.length
 							}
-							active={pathname == "/blog"}
+							active={pathname.replace(/\/$/, "") == "/blog"}
 						>
 							Blog
 						</NavLink>
-						<NavLink href="/about" active={pathname == "/about"}>
+						<NavLink
+							href="/about"
+							active={pathname.replace(/\/$/, "") == "/about"}
+						>
 							About
 						</NavLink>
 						<NavLink
 							href="/projects"
-							active={pathname == "/projects"}
+							active={pathname.replace(/\/$/, "") == "/projects"}
 						>
 							Projects
 						</NavLink>
