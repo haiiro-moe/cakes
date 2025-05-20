@@ -1,6 +1,6 @@
 "use client";
 
-import { Project } from "@/app/projects/page";
+import { Project } from "@/app/api/projects/route";
 import { ExternalLink } from "lucide-react";
 import Image from "next/image";
 import { MouseEvent } from "react";

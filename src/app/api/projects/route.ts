@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
 
-type Project = {
+export type Project = {
 	name: string;
 	short_description: string;
 	description: string;
