@@ -61,7 +61,7 @@ export const metadata: Metadata = {
 		url: "https://haiiro.moe/~cakes/",
 		images: [
 			{
-				url: "./og.png",
+				url: "/~cakes/og.png",
 				width: 1200,
 				height: 630,
 			},
@@ -73,7 +73,7 @@ export const metadata: Metadata = {
 		description: "About me",
 		images: [
 			{
-				url: "./og.png",
+				url: "/~cakes/og.png",
 				width: 1200,
 				height: 630,
 			},
@@ -89,6 +89,26 @@ export default function RootLayout({
 	return (
 		<PathProvider>
 			<html lang="en">
+				<head>
+					<link
+						rel="apple-touch-icon"
+						sizes="180x180"
+						href="/~cakes/apple-touch-icon.png"
+					/>
+					<link
+						rel="icon"
+						type="image/png"
+						sizes="32x32"
+						href="/~cakes/favicon-32x32.png"
+					/>
+					<link
+						rel="icon"
+						type="image/png"
+						sizes="16x16"
+						href="/~cakes/favicon-16x16.png"
+					/>
+					<link rel="manifest" href="/~cakes/site.webmanifest" />
+				</head>
 				<body
 					className={`${roboto.variable} ${robotoMono.variable} ${robotoSerif.variable} ${shadowsIntoLight.variable} antialiased font-sans`}
 				>
