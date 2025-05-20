@@ -12,6 +12,10 @@ const nextConfig: NextConfig = {
 				protocol: "https",
 				hostname: "safe.haiiro.moe",
 			},
+			{
+				protocol: "https",
+				hostname: "cdn.discordapp.com",
+			},
 		],
 	},
 };
