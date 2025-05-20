@@ -1,3 +1,10 @@
+---
+name: Asuka
+short_description: A Discord bot for a small community.
+url: https://github.com/haiiro-moe/asuka
+image: /projects/asuka.png
+---
+
 # Asuka
 
 A Discord bot for a community. The currently active version features very basic moderation, user profiles and a couple fun features. At first I just wanted it to be a bot for very specific use cases, but it eventually became a relatively big project, especially with the current rewrite I am doing.
