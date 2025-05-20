@@ -2,6 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
 	basePath: "/~cakes",
+	trailingSlash: true,
 	images: {
 		remotePatterns: [
 			{
