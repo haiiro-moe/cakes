@@ -69,6 +69,7 @@ export async function generateMetadata(
 			card: "summary_large_image",
 			title: post.title,
 			description: post.description,
+			site: `https://haiiro.moe/~cakes/blog/${slug}`,
 			images: [
 				{
 					url: post.image,

@@ -1,6 +1,7 @@
 import Container from "@/components/container";
 import RandomQuote from "@/components/home-page/random-quote";
 import ProjectContainer from "@/components/projects-page/project-container";
+import { Metadata, ResolvingMetadata } from "next";
 import fs from "node:fs";
 import path from "node:path";
 
@@ -11,6 +12,27 @@ export type Project = {
 	url: string;
 	image?: string;
 };
+
+export async function generateMetadata(
+	parent: ResolvingMetadata
+): Promise<Metadata> {
+	return {
+		...(parent as Metadata),
+		title: "~cakes - projects",
+		description: "Projects I am working on.",
+		openGraph: {
+			title: "~cakes - projects",
+			description: "Projects I am working on.",
+			url: "https://haiiro.moe/~cakes/projects",
+		},
+		twitter: {
+			card: "summary_large_image",
+			title: "~cakes - projects",
+			description: "Projects I am working on.",
+			site: "https://haiiro.moe/~cakes/projects",
+		},
+	};
+}
 
 export default function ProjectsPage() {
 	return (

@@ -71,6 +71,7 @@ export const metadata: Metadata = {
 		card: "summary_large_image",
 		title: "About",
 		description: "About me",
+		site: "https://haiiro.moe/~cakes/",
 		images: [
 			{
 				url: "/~cakes/og.png",
