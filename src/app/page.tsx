@@ -65,7 +65,7 @@ export default async function Home() {
 					<OnlineDisplay />
 				</h1>
 				<div className="mx-3 w-full max-w-[calc(100vw_-_2.5rem)]">
-					<p className="mt-4 text-xl lg:max-w-lg lg:text-2xl">
+					<p className="mt-4 lg:max-w-lg text-xl lg:text-2xl">
 						A personal site for sharing my thoughts, ideas and
 						projects. I&apos;m cakes. Nice to meet you!
 					</p>
@@ -130,7 +130,7 @@ export default async function Home() {
 				</ul>
 			</Container>
 			<Container asSection relative>
-				<div className="top-1/2 left-1/2 -translate-1/2 lg:top-0 lg:left-unset lg:right-16 absolute flex justify-center items-center h-[calc(100%-4rem)] aspect-square text-7xl opacity-50 lg:opacity-100">
+				<div className="top-1/2 lg:top-0 lg:right-16 left-1/2 lg:left-[unset] absolute flex justify-center items-center opacity-50 lg:opacity-100 h-[calc(100%-4rem)] aspect-square text-7xl -translate-1/2 lg:translate-0">
 					<span className="font-serif">haiiro</span>
 					<span className="absolute opacity-25 rotate-12">灰色</span>
 				</div>
