@@ -284,6 +284,7 @@
 		.post-content h4::before,
 		.post-content h5::before {
 			top: 50%;
+			right: unset;
 			left: -1.5rem;
 		}
 	}
