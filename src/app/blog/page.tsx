@@ -9,11 +9,13 @@ export const metadata: Metadata = {
 	title: "~cakes - blog",
 	description: "My blog posts",
 	openGraph: {
+		...rootMeta.openGraph,
 		title: "~cakes - blog",
 		description: "My blog posts",
 		url: "https://haiiro.moe/~cakes/blog",
 	},
 	twitter: {
+		...rootMeta.twitter,
 		card: "summary_large_image",
 		title: "~cakes - blog",
 		description: "My blog posts",

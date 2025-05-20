@@ -12,11 +12,13 @@ export const metadata: Metadata = {
 	title: "~cakes - about",
 	description: "Hello who dis?",
 	openGraph: {
+		...rootMeta.openGraph,
 		title: "~cakes - about",
 		description: "Hello who dis?",
 		url: "https://haiiro.moe/~cakes/about",
 	},
 	twitter: {
+		...rootMeta.twitter,
 		card: "summary_large_image",
 		title: "~cakes - about",
 		description: "Hello who dis?",

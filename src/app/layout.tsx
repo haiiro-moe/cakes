@@ -56,8 +56,8 @@ const shadowsIntoLight = Shadows_Into_Light({
 export const metadata: Metadata = {
 	title: "~cakes",
 	openGraph: {
-		title: "About",
-		description: "About me",
+		title: "~cakes",
+		description: "(if you see this message i probably fucked up)",
 		url: "https://haiiro.moe/~cakes/",
 		images: [
 			{
@@ -69,8 +69,8 @@ export const metadata: Metadata = {
 	},
 	twitter: {
 		card: "summary_large_image",
-		title: "About",
-		description: "About me",
+		title: "~cakes",
+		description: "(if you see this message i probably fucked up)",
 		site: "https://haiiro.moe/~cakes/",
 		images: [
 			{

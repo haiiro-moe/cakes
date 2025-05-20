@@ -9,11 +9,13 @@ export const metadata: Metadata = {
 	title: "~cakes - projects",
 	description: "Projects I am working on.",
 	openGraph: {
+		...rootMeta.openGraph,
 		title: "~cakes - projects",
 		description: "Projects I am working on.",
 		url: "https://haiiro.moe/~cakes/projects",
 	},
 	twitter: {
+		...rootMeta.twitter,
 		card: "summary_large_image",
 		title: "~cakes - projects",
 		description: "Projects I am working on.",

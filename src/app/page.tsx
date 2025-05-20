@@ -18,6 +18,19 @@ export const metadata: Metadata = {
 	...rootMeta,
 	title: "~cakes - home",
 	description: "Welcome to my personal site.",
+	openGraph: {
+		...rootMeta.openGraph,
+		title: "~cakes - home",
+		description: "Welcome to my personal site.",
+		url: "https://haiiro.moe/~cakes",
+	},
+	twitter: {
+		...rootMeta.twitter,
+		card: "summary_large_image",
+		title: "~cakes - home",
+		description: "Welcome to my personal site.",
+		site: "https://haiiro.moe/~cakes",
+	},
 };
 
 async function fetchProjects(): Promise<
