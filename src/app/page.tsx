@@ -75,7 +75,9 @@ export default async function Home() {
 				</div>
 			</Container>
 			<Container asSection textAlign="center">
-				<h1 className="font-semibold text-5xl lg:text-6xl">Some of my projects</h1>
+				<h1 className="font-semibold text-5xl lg:text-6xl">
+					Some of my projects
+				</h1>
 				<p className="mt-4 text-xl lg:text-2xl">
 					Here are my most recently updated projects.
 				</p>
@@ -132,7 +134,9 @@ export default async function Home() {
 					<span className="font-serif">haiiro</span>
 					<span className="absolute opacity-25 rotate-12">灰色</span>
 				</div>
-				<h1 className="font-semibold text-5xl lg:text-6xl">What even is haiiro?</h1>
+				<h1 className="font-semibold text-5xl lg:text-6xl">
+					What even is haiiro?
+				</h1>
 				<p className="mt-4 max-w-3xl text-lg lg:text-2xl text-justify">
 					It started off as just a simple personal site. I then had an
 					idea to invite a couple people into a GitHub org, and have
