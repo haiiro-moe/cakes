@@ -61,7 +61,7 @@ export const metadata: Metadata = {
 		url: "https://haiiro.moe/~cakes/",
 		images: [
 			{
-				url: "/~cakes/og.png",
+				url: "https://haiiro.moe/~cakes/~cakes/og.png",
 				width: 1200,
 				height: 630,
 			},
@@ -74,7 +74,7 @@ export const metadata: Metadata = {
 		site: "https://haiiro.moe/~cakes/",
 		images: [
 			{
-				url: "/~cakes/og.png",
+				url: "https://haiiro.moe/~cakes/~cakes/og.png",
 				width: 1200,
 				height: 630,
 			},
