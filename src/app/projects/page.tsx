@@ -1,29 +1,25 @@
 import Container from "@/components/container";
 import RandomQuote from "@/components/home-page/random-quote";
 import ProjectsList from "@/components/projects-page/projects-list";
-import { Metadata, ResolvingMetadata } from "next";
+import { Metadata } from "next";
+import { metadata as rootMeta } from "@/app/layout";
 
-export async function generateMetadata(
-	parent: ResolvingMetadata
-): Promise<Metadata> {
-	const parentMeta = await parent;
-	return {
-		...(parentMeta as Metadata),
+export const metadata: Metadata = {
+	...rootMeta,
+	title: "~cakes - projects",
+	description: "Projects I am working on.",
+	openGraph: {
 		title: "~cakes - projects",
 		description: "Projects I am working on.",
-		openGraph: {
-			title: "~cakes - projects",
-			description: "Projects I am working on.",
-			url: "https://haiiro.moe/~cakes/projects",
-		},
-		twitter: {
-			card: "summary_large_image",
-			title: "~cakes - projects",
-			description: "Projects I am working on.",
-			site: "https://haiiro.moe/~cakes/projects",
-		},
-	};
-}
+		url: "https://haiiro.moe/~cakes/projects",
+	},
+	twitter: {
+		card: "summary_large_image",
+		title: "~cakes - projects",
+		description: "Projects I am working on.",
+		site: "https://haiiro.moe/~cakes/projects",
+	},
+};
 
 export default function ProjectsPage() {
 	return (

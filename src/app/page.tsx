@@ -4,7 +4,8 @@ import ProjectCards from "@/components/home-page/project-cards";
 import RandomQuote from "@/components/home-page/random-quote";
 import RouterLink from "@/components/router-link";
 import { Endpoints } from "@octokit/types";
-import type { Metadata, ResolvingMetadata } from "next";
+import type { Metadata } from "next";
+import { metadata as rootMeta } from "@/app/layout";
 
 const projectCache: {
 	[key: string]: {
@@ -13,16 +14,11 @@ const projectCache: {
 	};
 } = {};
 
-export async function generateMetadata(
-	parent: ResolvingMetadata
-): Promise<Metadata> {
-	const parentMeta = await parent;
-	return {
-		...(parentMeta as Metadata),
-		title: "~cakes - home",
-		description: "Welcome to my personal site.",
-	};
-}
+export const metadata: Metadata = {
+	...rootMeta,
+	title: "~cakes - home",
+	description: "Welcome to my personal site.",
+};
 
 async function fetchProjects(): Promise<
 	Endpoints["GET /users/{username}/repos"]["response"]["data"]

@@ -3,30 +3,26 @@ import Container from "@/components/container";
 import RandomQuote from "@/components/home-page/random-quote";
 import RouterLink from "@/components/router-link";
 import { ExternalLink } from "lucide-react";
-import type { Metadata, ResolvingMetadata } from "next";
+import type { Metadata } from "next";
 import Image from "next/image";
+import { metadata as rootMeta } from "@/app/layout";
 
-export async function generateMetadata(
-	parent: ResolvingMetadata
-): Promise<Metadata> {
-	const parentMeta = await parent;
-	return {
-		...(parentMeta as Metadata),
+export const metadata: Metadata = {
+	...rootMeta,
+	title: "~cakes - about",
+	description: "Hello who dis?",
+	openGraph: {
 		title: "~cakes - about",
 		description: "Hello who dis?",
-		openGraph: {
-			title: "~cakes - about",
-			description: "Hello who dis?",
-			url: "https://haiiro.moe/~cakes/about",
-		},
-		twitter: {
-			card: "summary_large_image",
-			title: "~cakes - about",
-			description: "Hello who dis?",
-			site: "https://haiiro.moe/~cakes/about",
-		},
-	};
-}
+		url: "https://haiiro.moe/~cakes/about",
+	},
+	twitter: {
+		card: "summary_large_image",
+		title: "~cakes - about",
+		description: "Hello who dis?",
+		site: "https://haiiro.moe/~cakes/about",
+	},
+};
 
 export default function AboutPage() {
 	return (

@@ -2,8 +2,9 @@ import type { Post } from "@/components/blog-page/get-posts";
 import PostContent from "@/components/blog-page/post-content";
 import Container from "@/components/container";
 import RandomQuote from "@/components/home-page/random-quote";
-import type { Metadata, ResolvingMetadata } from "next";
+import type { Metadata } from "next";
 import { headers } from "next/headers";
+import { metadata as rootMeta } from "@/app/layout";
 
 type Props = {
 	params: Promise<{ slug: string }>;
@@ -11,16 +12,12 @@ type Props = {
 
 let metadataCache: Metadata | null = null;
 
-export async function generateMetadata(
-	{ params }: Props,
-	parent: ResolvingMetadata
-): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
 	if (metadataCache) {
 		return metadataCache;
 	}
 
 	const slug = (await params).slug;
-	const parentMeta = await parent;
 
 	// fetch post information
 	const hdrs = await headers();
@@ -50,7 +47,7 @@ export async function generateMetadata(
 		});
 
 	const metadata: Metadata = {
-		...(parentMeta as Metadata),
+		...rootMeta,
 		title: `~cakes - ${post.title}`,
 		description: post.description,
 		openGraph: {

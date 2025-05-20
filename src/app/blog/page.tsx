@@ -2,8 +2,10 @@ import BlogPageContents from "@/components/blog-page/blog-page-contents";
 import Container from "@/components/container";
 import RandomQuote from "@/components/home-page/random-quote";
 import { Metadata } from "next";
+import { metadata as rootMeta } from "@/app/layout";
 
 export const metadata: Metadata = {
+	...rootMeta,
 	title: "~cakes - blog",
 	description: "My blog posts",
 	openGraph: {
