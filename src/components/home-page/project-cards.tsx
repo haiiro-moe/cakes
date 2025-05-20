@@ -105,11 +105,6 @@ export default function ProjectCards({
 			return;
 		}
 
-		// Make sure this function only works until 1280px
-		if (window.innerWidth < 1280) {
-			return;
-		}
-
 		const newCards = [];
 		const container = document.getElementById("project-cards");
 		if (container) {
