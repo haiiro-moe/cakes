@@ -57,7 +57,7 @@ export default function ProjectContainer({ project }: { project: Project }) {
 				{project.image && (
 					<figure className="w-1/3">
 						<Image
-							src={project.image}
+							src={`/~cakes/${project.image}`}
 							alt={project.name}
 							className="object-cover"
 							width={500}
