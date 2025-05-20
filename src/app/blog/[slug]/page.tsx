@@ -57,7 +57,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 			url: `https://haiiro.moe/~cakes/blog/${slug}`,
 			images: [
 				{
-					url: post.image,
+					url: post.image
+						? `https://haiiro.moe/~cakes/${post.image}`
+						: "https://haiiro.moe/~cakes/og.png",
 					width: 1200,
 					height: 630,
 				},
@@ -71,7 +73,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 			site: `https://haiiro.moe/~cakes/blog/${slug}`,
 			images: [
 				{
-					url: post.image,
+					url: post.image
+						? `https://haiiro.moe/~cakes/${post.image}`
+						: "https://haiiro.moe/~cakes/og.png",
 					width: 1200,
 					height: 630,
 				},
