@@ -151,7 +151,7 @@ export default function PostContent({ slug }: { slug: string }) {
 				{response && response[0] && response[0].image && (
 					<div className="image-container">
 						<Image
-							src={`/posts/${response[0].image}`}
+							src={`/~cakes/posts/${response[0].image}`}
 							alt="Post Image"
 							className="top-0 left-0 -z-[1] absolute mask-l-to-50% blur-xs rounded-lg w-full h-full object-cover blog-image"
 							width={1920}
