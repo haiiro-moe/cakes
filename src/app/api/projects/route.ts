@@ -15,7 +15,7 @@ let cacheTimestamp: number = 0;
 
 const projectsDir = path.join(process.cwd(), "projects");
 
-export async function GET(request: Request) {
+export async function GET() {
 	// Check if any of the files in the projects directory have been modified or the cache is expired
 	const stats = fs.statSync(projectsDir);
 	const lastModified = stats.mtimeMs;

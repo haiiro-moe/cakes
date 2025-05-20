@@ -14,6 +14,7 @@ import { MouseEvent, useEffect } from "react";
 import Image from "next/image";
 import Container from "../container";
 import remarkGfm from "remark-gfm";
+import RouterLink from "../router-link";
 
 export function goToHeading(targetId: string) {
 	const targetElement = document.getElementById(targetId);
@@ -115,9 +116,7 @@ export default function PostContent({ slug }: { slug: string }) {
 	if (error) {
 		return (
 			<div className="flex justify-center items-center min-h-[90vh] font-serif text-5xl">
-				<div>
-					There was an error fetching the post.
-				</div>
+				<div>There was an error fetching the post.</div>
 				<div>
 					<RouterLink href="/blog" className="btn btn-ghost">
 						<ChevronLeft size={20} />

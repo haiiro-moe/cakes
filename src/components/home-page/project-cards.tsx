@@ -156,9 +156,6 @@ export default function ProjectCards({
 			ref={containerRef}
 			className="relative flex flex-row items-center gap-4 mx-3 mt-5 pb-2 overflow-x-scroll overflow-y-auto scroll-smooth scrollbar-hide"
 			id="project-cards"
-			onScrollCapture={(e) => {
-				// if scrolling up and down on this element, make sure to scroll sideways
-			}}
 		>
 			{cards.map((card) => (
 				<GitHubCard
