@@ -6,8 +6,9 @@ import { Metadata, ResolvingMetadata } from "next";
 export async function generateMetadata(
 	parent: ResolvingMetadata
 ): Promise<Metadata> {
+	const parentMeta = await parent;
 	return {
-		...(parent as Metadata),
+		...(parentMeta as Metadata),
 		title: "~cakes - projects",
 		description: "Projects I am working on.",
 		openGraph: {

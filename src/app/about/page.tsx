@@ -9,8 +9,9 @@ import Image from "next/image";
 export async function generateMetadata(
 	parent: ResolvingMetadata
 ): Promise<Metadata> {
+	const parentMeta = await parent;
 	return {
-		...(parent as Metadata),
+		...(parentMeta as Metadata),
 		title: "~cakes - about",
 		description: "Hello who dis?",
 		openGraph: {

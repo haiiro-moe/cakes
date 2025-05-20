@@ -16,8 +16,9 @@ const projectCache: {
 export async function generateMetadata(
 	parent: ResolvingMetadata
 ): Promise<Metadata> {
+	const parentMeta = await parent;
 	return {
-		...(parent as Metadata),
+		...(parentMeta as Metadata),
 		title: "~cakes - home",
 		description: "Welcome to my personal site.",
 	};
