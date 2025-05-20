@@ -16,7 +16,7 @@ export default function ProjectsPage() {
 	return (
 		<main className="flex flex-col mx-auto w-full page-transition projects page-root">
 			<Container asSection bgVariant margin={48} blob>
-				<h1 className="font-serif font-extralight text-8xl">
+				<h1 className="font-serif font-extralight text-6xl lg:text-8xl">
 					The <span className="text-gradient">projects</span> that
 					matter
 				</h1>

@@ -23,10 +23,10 @@ export default function Container({
 			marginClass = "mt-16 pb-16";
 			break;
 		case 40:
-			marginClass = "mt-40 pb-16";
+			marginClass = "mt-24 lg:mt-40 pb-16";
 			break;
 		case 48:
-			marginClass = "mt-48 pb-16";
+			marginClass = "mt-28 lg:mt-48 pb-16";
 			break;
 		default:
 			marginClass = "mt-16 pb-16";

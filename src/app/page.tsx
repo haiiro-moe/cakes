@@ -60,12 +60,12 @@ export default async function Home() {
 	return (
 		<main className="flex flex-col mx-auto w-full page-transition home page-root">
 			<Container asSection bgVariant margin={48} blob>
-				<h1 className="relative w-fit font-serif font-extralight text-8xl">
+				<h1 className="relative w-fit font-serif font-extralight text-7xl lg:text-8xl">
 					Welcome to <span className="text-gradient">~cakes</span>
 					<OnlineDisplay />
 				</h1>
-				<div className="mx-3 w-full">
-					<p className="mt-4 max-w-lg text-2xl">
+				<div className="mx-3 w-full max-w-[calc(100vw_-_2.5rem)]">
+					<p className="mt-4 text-xl lg:max-w-lg lg:text-2xl">
 						A personal site for sharing my thoughts, ideas and
 						projects. I&apos;m cakes. Nice to meet you!
 					</p>
@@ -75,8 +75,8 @@ export default async function Home() {
 				</div>
 			</Container>
 			<Container asSection textAlign="center">
-				<h1 className="font-semibold text-6xl">Some of my projects</h1>
-				<p className="mt-4 text-2xl">
+				<h1 className="font-semibold text-5xl lg:text-6xl">Some of my projects</h1>
+				<p className="mt-4 text-xl lg:text-2xl">
 					Here are my most recently updated projects.
 				</p>
 				<ProjectCards projects={projects} />
@@ -105,8 +105,8 @@ export default async function Home() {
 				</div>
 			</Container>
 			<Container asSection bgVariant>
-				<h1 className="font-semibold text-6xl">About me</h1>
-				<p className="mt-4 text-2xl">
+				<h1 className="font-semibold text-5xl lg:text-6xl">About me</h1>
+				<p className="mt-4 text-lg lg:text-2xl">
 					I have an{" "}
 					<RouterLink href="/about" className="link link-primary">
 						about page
@@ -114,7 +114,7 @@ export default async function Home() {
 					if you want to know even more about me, but here are some
 					tidbits:
 				</p>
-				<ul className="mt-4 text-2xl list-disc list-inside">
+				<ul className="mt-4 text-lg lg:text-2xl list-disc list-inside">
 					<li>My name&apos;s David.</li>
 					<li>I really enjoy web development.</li>
 					<li>
@@ -128,12 +128,12 @@ export default async function Home() {
 				</ul>
 			</Container>
 			<Container asSection relative>
-				<div className="top-0 right-16 absolute flex justify-center items-center h-[calc(100%-4rem)] aspect-square text-7xl">
+				<div className="top-1/2 left-1/2 -translate-1/2 lg:top-0 lg:left-unset lg:right-16 absolute flex justify-center items-center h-[calc(100%-4rem)] aspect-square text-7xl opacity-50 lg:opacity-100">
 					<span className="font-serif">haiiro</span>
 					<span className="absolute opacity-25 rotate-12">灰色</span>
 				</div>
-				<h1 className="font-semibold text-6xl">What even is haiiro?</h1>
-				<p className="mt-4 max-w-3xl text-2xl text-justify">
+				<h1 className="font-semibold text-5xl lg:text-6xl">What even is haiiro?</h1>
+				<p className="mt-4 max-w-3xl text-lg lg:text-2xl text-justify">
 					It started off as just a simple personal site. I then had an
 					idea to invite a couple people into a GitHub org, and have
 					them all make cool stuff together. The whole thing&apos;s

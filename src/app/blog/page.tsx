@@ -123,11 +123,11 @@ export default function BlogPage() {
 	return (
 		<main className="flex flex-col mx-auto w-full page-transition blog page-root">
 			<Container asSection bgVariant margin={48} blob>
-				<h1 className="font-serif font-extralight text-8xl">
+				<h1 className="font-serif font-extralight text-6xl lg:text-8xl">
 					The <span className="text-gradient">blog</span> page.
 				</h1>
 				<div className="mx-3">
-					<p className="mt-4 max-w-lg text-2xl">
+					<p className="mt-4 max-w-lg text-xl lg:text-2xl">
 						{!tags && !search && !before && !after && (
 							<>
 								Lots of text with not a whole lot of thought.
@@ -149,7 +149,7 @@ export default function BlogPage() {
 				</div>
 			</Container>
 			<Container asSection>
-				<h1 className="mb-10 font-semibold text-6xl">My posts</h1>
+				<h1 className="mb-10 font-semibold text-4xl lg:text-6xl">My posts</h1>
 				{/* TODO: Filtering */}
 				{isLoading && (
 					<div className="font-serif text-5xl text-center">

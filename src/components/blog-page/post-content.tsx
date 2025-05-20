@@ -93,11 +93,11 @@ export default function PostContent({ slug }: { slug: string }) {
 						<ChevronLeft size={20} />
 						Back to posts
 					</Link>
-					<h1 className="font-serif font-extralight text-8xl">
+					<h1 className="font-serif font-extralight text-6xl lg:text-8xl">
 						Loading post...
 					</h1>
 					<div className="mx-3">
-						<p className="mt-4 max-w-lg text-2xl">
+						<p className="mt-4 max-w-lg text-xl lg:text-2xl">
 							Please wait while we fetch the post content.
 						</p>
 					</div>

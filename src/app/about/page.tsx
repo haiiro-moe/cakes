@@ -37,11 +37,11 @@ export default function AboutPage() {
 	return (
 		<main className="flex flex-col mx-auto w-full page-transition blog page-root">
 			<Container asSection bgVariant margin={48} blob>
-				<h1 className="font-serif font-extralight text-8xl">
+				<h1 className="font-serif font-extralight text-6xl lg:text-8xl">
 					So. <span className="text-gradient">Who am I?</span>
 				</h1>
 				<div className="mx-3">
-					<p className="mt-4 max-w-lg text-2xl">
+					<p className="mt-4 max-w-lg text-xl lg:text-2xl">
 						These will be on the test later, so pay attention!{" "}
 						<em>(Or don&apos;t, who am I to tell you)</em>
 					</p>
@@ -49,7 +49,7 @@ export default function AboutPage() {
 			</Container>
 			<Container asSection>
 				<h1
-					className="my-4 font-serif font-light text-6xl"
+					className="my-4 font-serif font-light text-4xl lg:text-6xl"
 					id="who-am-i"
 				>
 					Thank <span className="text-gradient">you</span> for
@@ -154,7 +154,7 @@ export default function AboutPage() {
 					like making stuff.
 				</p>
 				<h1
-					className="my-4 font-serif font-light text-6xl"
+					className="my-4 font-serif font-light text-4xl lg:text-6xl"
 					id="why-cakes"
 				>
 					Why <span className="text-gradient">cakes</span>?
@@ -171,7 +171,7 @@ export default function AboutPage() {
 					I just went with &quot;cakes&quot;. I did not expect it to
 					be free to take.
 				</p>
-				<h1 className="my-4 font-serif font-light text-6xl">
+				<h1 className="my-4 font-serif font-light text-4xl lg:text-6xl">
 					What do I <span className="text-gradient">like</span>?
 				</h1>
 				<p className="my-4">
@@ -248,7 +248,7 @@ export default function AboutPage() {
 						));
 					})()}
 				</ul>
-				<h1 className="my-4 font-serif font-light text-6xl">
+				<h1 className="my-4 font-serif font-light text-4xl lg:text-6xl">
 					Some more <span className="text-gradient">links</span>,
 					please!
 				</h1>

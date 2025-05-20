@@ -269,12 +269,23 @@
 	.post-content h5::before {
 		position: absolute;
 		top: 50%;
-		left: -1.5rem;
+		right: 0;
 		color: var(--color-primary);
 		font-size: 1.5rem;
 		opacity: 0.5;
 		transition: all 0.2s ease-in-out;
 		transform: translateY(-0.5rem) translateX(-1rem) rotate(12deg);
+	}
+
+	@media (width >= 40rem) {
+		.post-content h1::before,
+		.post-content h2::before,
+		.post-content h3::before,
+		.post-content h4::before,
+		.post-content h5::before {
+			top: 50%;
+			left: -1.5rem;
+		}
 	}
 
 	.post-content h1:hover::before,
