@@ -3,7 +3,7 @@ export default function Background() {
 		<>
 			<div
 				// I found the noise image somewhere. I don't remember anymore.
-				style={{ background: "url(/noise.png)" }}
+				style={{ background: "url(/~cakes/noise.png)" }}
 				className="absolute inset-0 bg-[size:180px] bg-repeat opacity-[0.025] -mt-[250px] pointer-events-none [z-index:-1]"
 			></div>
 			<svg
