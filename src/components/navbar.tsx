@@ -115,7 +115,7 @@ const fetcher = (url: string): Promise<Post[]> =>
 export default function Navbar() {
 	const pathname = usePathname();
 
-	const { data: posts } = useSWR("/api/blog/posts", (url) => fetcher(url));
+	const { data: posts } = useSWR("/~cakes/api/blog/posts", (url) => fetcher(url));
 
 	const [isOnTop, setIsOnTop] = useState(true);
 	const handleScroll = () => {

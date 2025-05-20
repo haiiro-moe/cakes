@@ -27,7 +27,7 @@ export async function generateMetadata(
 	const host = hdrs.get("x-forwarded-host") || hdrs.get("host");
 	const protocol = hdrs.get("x-forwarded-proto") || "http";
 	const origin = `${protocol}://${host}`;
-	const url = new URL("/api/blog/posts", origin);
+	const url = new URL("/~cakes/api/blog/posts", origin);
 	const post = await fetch(url.toString())
 		.then((res) => {
 			if (!res.ok) {

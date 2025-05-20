@@ -64,7 +64,7 @@ export default function PostContent({ slug }: { slug: string }) {
 		data: response,
 		error,
 		isLoading,
-	} = useSWR(["/api/blog/posts", slug], ([url, slug]) =>
+	} = useSWR(["/~cakes/api/blog/posts", slug], ([url, slug]) =>
 		fetcher(url, { arg: { slug } })
 	);
 

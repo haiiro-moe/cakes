@@ -87,7 +87,7 @@ export default function BlogPage() {
 		error,
 		isLoading,
 	} = useSWR(
-		["/api/blog/posts", search, tags, before, after],
+		["/~cakes/api/blog/posts", search, tags, before, after],
 		([url, search, tags, before, after]) =>
 			fetcher(url, { arg: { search, tags, before, after } })
 	);
