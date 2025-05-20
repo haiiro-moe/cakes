@@ -52,7 +52,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 		description: post.description,
 		openGraph: {
 			...rootMeta.openGraph,
-			title: post.title,
+			title: `~cakes - ${post.title}`,
 			description: post.description,
 			url: `https://haiiro.moe/~cakes/blog/${slug}`,
 			images: [
@@ -68,7 +68,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 		twitter: {
 			...rootMeta.twitter,
 			card: "summary_large_image",
-			title: post.title,
+			title: `~cakes - ${post.title}`,
 			description: post.description,
 			site: `https://haiiro.moe/~cakes/blog/${slug}`,
 			images: [
