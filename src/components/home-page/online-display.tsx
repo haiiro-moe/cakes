@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import useSWR from "swr";
+import RouterLink from "../router-link";
+import Discord from "../icons/Discord";
 type User = {
 	data: {
 		active_on_discord_mobile: boolean;
@@ -75,7 +77,7 @@ function fetcher(url: string) {
 export default function OnlineDisplay() {
 	const { data, error, isLoading } = useSWR(
 		"https://api.lanyard.rest/v1/users/147709526357966848",
-		fetcher
+		fetcher,
 	);
 
 	if (error || isLoading) {
@@ -111,32 +113,35 @@ export default function OnlineDisplay() {
 					className="mr-2"
 				/>
 				<div className="flex flex-col">
-					<span className="font-bold text-sm">
+					<span className="font-bold text-sm flex items-center">
+						<Discord size={14} className="inline-block mr-1" />
 						{data?.data.discord_user.username}
 					</span>
 					<span className="text-xs">
 						{/* Activity */}
-						{data?.data.activities[0]?.type === 3 ? (
+						{/* If no activity is present */}
+						{!data?.data.activities[0] ? (
+							<span>Not doing anything</span>
+						) : data?.data.activities[0]?.type === 2 ? (
 							<span>
 								Listening to{" "}
-								<a
+								<RouterLink
 									href={`https://open.spotify.com/track/${data?.data.spotify.track_id}`}
+									target="_blank"
 									className="text-primary"
 								>
 									{data?.data.spotify.song}
-								</a>{" "}
-								by {data?.data.spotify.artist}
+								</RouterLink>
 							</span>
-						) : data?.data.activities[0]?.type === 4 ? (
+						) : data?.data.activities[0]?.type === 1 ? (
 							<span>Streaming</span>
-						) : data?.data.activities[0]?.type === 5 ? (
-							<span>Listening to Spotify</span>
 						) : (
-							<span>{data?.data.activities[0]?.details}</span>
-						)}
-						{/* If no activity is present */}
-						{!data?.data.activities[0] && (
-							<span>Not doing anything</span>
+							<span>
+								Playing{" "}
+								<span className="font-bold">
+									{data?.data.activities[0]?.details}
+								</span>
+							</span>
 						)}
 					</span>
 				</div>
