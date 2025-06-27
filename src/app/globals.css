@@ -267,6 +267,7 @@
 	.post-content h3::before,
 	.post-content h4::before,
 	.post-content h5::before {
+		@apply font-serif;
 		position: absolute;
 		top: 50%;
 		right: 0;
@@ -327,6 +328,43 @@
 	.masonry-grid_column > .blog-card {
 		background: var(--color-base-100);
 		margin-bottom: 1rem;
+	}
+
+	img[float="right"] {
+		float: right;
+		margin-left: 1rem;
+		max-width: 100%;
+		height: auto;
+	}
+	img[float="left"] {
+		float: left;
+		margin-right: 1rem;
+		max-width: 100%;
+		height: auto;
+	}
+
+	/* Turn off floating on mobile */
+	@media (max-width: 40rem) {
+		img[float="right"],
+		img[float="left"] {
+			float: unset;
+			margin: unset;
+			max-width: 100%;
+			height: auto;
+		}
+	}
+
+	img[height] {
+		height: calc(attr(height) * 1px);
+		width: auto;
+	}
+	img[width] {
+		width: calc(attr(width) * 1px);
+		height: auto;
+	}
+	img[width][height] {
+		width: calc(data(width) * 1px);
+		height: calc(data(height) * 1px);
 	}
 }
 
