@@ -272,7 +272,7 @@ export default function PostContent({ slug }: { slug: string }) {
 										</a>
 									),
 								blockquote: ({ ...props }) => (
-									<div className="bg-base-200 shadow-sm my-5 border-primary border-l-4 card">
+									<div className="blockquote-container bg-base-200 shadow-sm my-5 border-primary border-l-4 card">
 										<div className="p-3 card-body">
 											<blockquote {...props} />
 										</div>
