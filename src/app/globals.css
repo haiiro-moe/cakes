@@ -329,6 +329,21 @@
 		background: var(--color-base-100);
 		margin-bottom: 1rem;
 	}
+
+	.card-container {
+		max-width: 1000px;
+		margin: 0 auto;
+		padding: 1rem;
+	}
+
+	@media (max-width: 640px) {
+		.card-container .blockquote-container {
+			clear: both;
+			margin-left: 0;
+			margin-right: 0;
+			width: 100%;
+		}
+	}
 }
 
 @utility font-var-width-* {
