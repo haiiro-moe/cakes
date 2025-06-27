@@ -15,6 +15,7 @@ import Image from "next/image";
 import Container from "../container";
 import remarkGfm from "remark-gfm";
 import RouterLink from "../router-link";
+import BlogImage from "./blog-image";
 
 export function goToHeading(targetId: string) {
 	const targetElement = document.getElementById(targetId);
@@ -282,6 +283,36 @@ export default function PostContent({ slug }: { slug: string }) {
 										className="my-4 list-disc list-inside"
 										{...props}
 									/>
+								),
+								img: ({ ...props }) => (
+									<BlogImage
+										src={props.src as string}
+										alt={props.alt as string}
+										float={
+											props.className?.includes(
+												"float-left"
+											)
+												? "left"
+												: props.className?.includes(
+														"float-right"
+												  )
+												? "right"
+												: undefined
+										}
+										width={props.width as number}
+										height={props.height as number}
+										cover={props.className?.includes(
+											"object-cover"
+										)}
+									/>
+								),
+								article: ({ ...props }) => (
+									// A card-like container for the post content
+									<div className="bg-base-100 shadow-sm my-3 card">
+										<div className="card-body">
+											<div>{props.children}</div>
+										</div>
+									</div>
 								),
 							}}
 						>
