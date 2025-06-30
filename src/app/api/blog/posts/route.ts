@@ -6,7 +6,7 @@ export async function GET(request: Request) {
 	// Check if the posts were initiated more than an hour ago and the dev environment is production
 	if (
 		posts.initiatedAt.getTime() < Date.now() - 1000 * 60 * 60 &&
-		process.env.ENVIRONMENT === "production"
+		process.env.ENVIRONMENT !== "development"
 	) {
 		posts = new CakePosts();
 	} else {
@@ -20,11 +20,11 @@ export async function GET(request: Request) {
 	const searchParams = url.searchParams;
 	if (searchParams.get("sort") === "asc") {
 		allPosts.sort(
-			(a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
+			(a, b) => new Date(a.date).getTime() - new Date(b.date).getTime(),
 		);
 	} else {
 		allPosts.sort(
-			(a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+			(a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
 		);
 	}
 	if (searchParams.get("slug")) {
