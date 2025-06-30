@@ -3,8 +3,13 @@ import { CakePosts } from "@/components/blog-page/get-posts";
 let posts = new CakePosts();
 
 export async function GET(request: Request) {
-	// Check if the posts were initiated more than an hour ago
-	if (posts.initiatedAt.getTime() < Date.now() - 1000 * 60 * 60) {
+	// Check if the posts were initiated more than an hour ago and the dev environment is production
+	if (
+		posts.initiatedAt.getTime() < Date.now() - 1000 * 60 * 60 &&
+		process.env.ENVIRONMENT === "production"
+	) {
+		posts = new CakePosts();
+	} else {
 		posts = new CakePosts();
 	}
 

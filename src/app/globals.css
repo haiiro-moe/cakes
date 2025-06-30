@@ -267,6 +267,7 @@
 	.post-content h3::before,
 	.post-content h4::before,
 	.post-content h5::before {
+		@apply font-serif;
 		position: absolute;
 		top: 50%;
 		right: 0;
@@ -327,6 +328,21 @@
 	.masonry-grid_column > .blog-card {
 		background: var(--color-base-100);
 		margin-bottom: 1rem;
+	}
+
+	.card-container {
+		max-width: 1000px;
+		margin: 0 auto;
+		padding: 1rem;
+	}
+
+	@media (max-width: 640px) {
+		.card-container .blockquote-container {
+			clear: both;
+			margin-left: 0;
+			margin-right: 0;
+			width: 100%;
+		}
 	}
 }
 

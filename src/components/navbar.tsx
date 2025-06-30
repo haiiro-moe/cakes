@@ -145,18 +145,18 @@ export default function Navbar() {
 		>
 			<div
 				className={
-					"absolute h-5 top-0 left-0 backdrop-blur-sm w-full hidden" +
-					(isOnTop ? " lg:hidden" : " lg:block")
-				}
-			></div>
-			<div
-				className={
 					"navbar w-full flex justify-between items-center" +
 					(isOnTop
 						? " bg-base-100/0 shadow-none border border-transparent"
 						: " bg-base-100/50 backdrop-blur-lg border border-base-300/50 shadow-sm")
 				}
 			>
+				<div
+					className={
+						"absolute h-5 -top-[1.3rem] left-0 backdrop-blur-sm w-full hidden" +
+						(isOnTop ? " lg:hidden" : " lg:block")
+					}
+				></div>
 				<div className="navbar-start">
 					<div className="lg:hidden block dropdown">
 						<div
