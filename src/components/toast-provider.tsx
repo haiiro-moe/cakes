@@ -89,7 +89,7 @@ export const ToastProvider: FC<ToastProviderProps> = ({
 				setTimeout(() => removeToast(id), duration);
 			}
 		},
-		[removeToast]
+		[removeToast],
 	);
 
 	useEffect(() => {
@@ -105,14 +105,14 @@ export const ToastProvider: FC<ToastProviderProps> = ({
 		vertical === "top"
 			? "toast-top"
 			: vertical === "bottom"
-			? "toast-bottom"
-			: "toast-middle";
+				? "toast-bottom"
+				: "toast-middle";
 	const hClass =
 		horizontal === "left"
 			? "toast-start"
 			: horizontal === "center"
-			? "toast-center"
-			: "toast-end";
+				? "toast-center"
+				: "toast-end";
 
 	const containerClass = `toast ${vClass} ${hClass} z-50 fixed`;
 
