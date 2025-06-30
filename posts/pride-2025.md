@@ -2,7 +2,7 @@
 title: A pastry's great collection of gay.
 description: Pride month is almost over, perfect opportunity.
 slug: pride-2025
-image: pride-2025.jpg
+image: pride-2025.png
 date: 2025-06-30 23:24:00+0100
 tags:
     - rambling
