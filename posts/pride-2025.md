@@ -23,6 +23,8 @@ Also known as the CUTE list. I'm here all day.
 
 By the way, If you followed my posts there will be duplicates here. Also as a quick disclaimer, all of these scores are objective. If you disagree, you are wrong. <sup>/s</sup>
 
+My top 20 yuri manga, mostly ordered by enjoyment. There are a couple honourable mentions at the end, those that I also really enjoyed but didn't quite make the cut. All manga are linked to their AniList pages. Have fun reading!
+
 <div class="card-container"><article>
 
 ### #1 - Bloom Into You
@@ -125,7 +127,7 @@ I remember barely being able to read the first chapters because of how packed wi
 
 ### #8 - I Married My Female Friend
 
-<img class="float-left cover" src="https://s4.anilist.co/file/anilistcdn/media/manga/cover/large/bx126292-Eb07hNWKihKy.jpg" height=200 width=125 alt="harumido cover">
+<img class="float-left cover" src="https://s4.anilist.co/file/anilistcdn/media/manga/cover/large/bx126292-Eb07hNWKihKy.jpg" height=200 width=125 alt="marryfriend cover">
 
 A very cute manga that starts off at already living together. Tons of fun, and despite the "Drama" tag its lighthearted enough for me to continue rereading it lots. _Yes, I love rereading stuff._ It's fluffy and reading about goofballs like these always puts it higher on the reread tier list for me. I know all of these are recommendations pretty much, but I still can't help but highlight some of them, this one being one such case. It's short, give it a try!
 
@@ -139,7 +141,7 @@ A very cute manga that starts off at already living together. Tons of fun, and d
 
 ### #9 - Kiss & White Lily for My Dearest Girl
 
-<img class="float-left cover" src="https://s4.anilist.co/file/anilistcdn/media/manga/cover/large/bx86235-YX1d9NR1Z3PU.png" height=200 width=125 alt="harumido cover">
+<img class="float-left cover" src="https://s4.anilist.co/file/anilistcdn/media/manga/cover/large/bx86235-YX1d9NR1Z3PU.png" height=200 width=125 alt="kisslily cover">
 
 The art is extremely good. It's an ensemble cast so there are a lot of characters, and all of them are at the very least cute :D
 
@@ -155,7 +157,7 @@ Fluffy story with not a whole lot of story beyond the relationships of these gir
 
 ### #10 - The Two of Them Are Pretty Much Like This
 
-<img class="float-left cover" src="https://s4.anilist.co/file/anilistcdn/media/manga/cover/large/bx114475-GlsTpHJukzMh.png" height=200 width=125 alt="harumido cover">
+<img class="float-left cover" src="https://s4.anilist.co/file/anilistcdn/media/manga/cover/large/bx114475-GlsTpHJukzMh.png" height=200 width=125 alt="twoofthem cover">
 
 No idea how I got so many 9.3/10s in my list, crazy.
 
@@ -171,7 +173,7 @@ This is a lengthy one. Fluff all the way from chapter 1, this manga portrays an 
 
 ### #11 - New Game!
 
-<img class="float-left cover" src="https://s4.anilist.co/file/anilistcdn/media/manga/cover/large/bx85697-INZQiwnVZbmV.png" height=200 width=125 alt="harumido cover">
+<img class="float-left cover" src="https://s4.anilist.co/file/anilistcdn/media/manga/cover/large/bx85697-INZQiwnVZbmV.png" height=200 width=125 alt="newgame cover">
 
 I LOVE NEW GAME SO MUCH. Literally the only thing that took the score down was the story, because it's not much. Everything else, the characters, the art and my enjoyment were on top. It was a little _too_ long at 183 chapters, and some of them could've been skipped or made shorter, but overall it was a treat. Not sure how yuri it is even after rereading a couple times, _but I have decided that it is._
 
@@ -185,7 +187,7 @@ I LOVE NEW GAME SO MUCH. Literally the only thing that took the score down was t
 
 ### #12 - Catulus Syndrome
 
-<img class="float-left cover" src="https://s4.anilist.co/file/anilistcdn/media/manga/cover/large/nx99023-9baQhbnEzu3P.jpg" height=200 width=125 alt="harumido cover">
+<img class="float-left cover" src="https://s4.anilist.co/file/anilistcdn/media/manga/cover/large/nx99023-9baQhbnEzu3P.jpg" height=200 width=125 alt="catulus cover">
 
 Man the art is so cute... Yuki is also so cute... I really love catgirls, especially when they are drawn this cute. I can't say much about it other than it being very cute and really well drawn.
 
@@ -197,15 +199,127 @@ Man the art is so cute... Yuki is also so cute... I really love catgirls, especi
 
 <article>
 
-### #13 - Catulus Syndrome
+### #13 - The Anemone Feels the Heat
 
-<img class="float-left cover" src="https://s4.anilist.co/file/anilistcdn/media/manga/cover/large/nx99023-9baQhbnEzu3P.jpg" height=200 width=125 alt="harumido cover">
+<img class="float-left cover" src="https://s4.anilist.co/file/anilistcdn/media/manga/cover/large/bx126722-hZFtLHZFYsFT.png" height=200 width=125 alt="anemone cover">
 
-Man the art is so cute... Yuki is also so cute... I really love catgirls, especially when they are drawn this cute. I can't say much about it other than it being very cute and really well drawn.
+If diabetes was a manga. The art is awesome, and Mashiro is sooooo cute. A short read, but very enjoyable, and even the side characters are really fun. I do wish we saw more of Ami and Riri, but such is life. Recommended if you want to go over the recommended sugar limit for the day.
 
-[AniList](https://anilist.co/manga/99023/Catulus-Syndrome/)
+[AniList](https://anilist.co/manga/126722/The-Anemone-Feels-the-Heat/)
 
-> **Score on AL:** 9/10 - _Story: 7, Characters: 9, Visuals: 10, Enjoyment: 10_
+> **Score on AL:** 9/10 - _Story: 7, Characters: 9, Visuals: 8, Enjoyment: 10_
+
+</article>
+
+<article>
+
+### #14 - I Can't Say No to the Lonely Girl
+
+<img class="float-left cover" src="https://s4.anilist.co/file/anilistcdn/media/manga/cover/large/bx112621-0YZhPSwgfLPm.jpg" height=200 width=125 alt="lonely girl cover">
+
+Kashikaze makes some pretty great manga. This is once again a case of "it has the drama tag so why am I dying of diabetes?" Compared to #13, this one is pretty much carried by the side characters in my opinion, at least at the beginning. The main pair is awesome don't get me wrong, but if it weren't for their friend group this manga wouldn't be much. Either way, a really enjoyable read, and manages to be enjoyable no matter how many times I reread it.
+
+[AniList](https://anilist.co/manga/112621/I-Cant-Say-No-to-the-Lonely-Girl/)
+
+> **Score on AL:** 8.3/10 - _Story: 6, Characters: 9, Visuals: 8, Enjoyment: 10_
+
+</article>
+
+<article>
+
+### #15 - Luminous = Blue
+
+<img class="float-left cover" src="https://s4.anilist.co/file/anilistcdn/media/manga/cover/large/bx106000-sKFRb8pROUB5.jpg" height=200 width=125 alt="lumiblue cover">
+
+This is moreso here for the outstanding art than anything else. The story is very meh, and the characters are only above average, but the art is good enough to carry the hell out of it. It's not unfun to read or anything, in fact I have reread this seven times, we've just reached a point in the list where there aren't many truly outstanding reasons for me liking it. The main characters are cute.
+
+[AniList](https://anilist.co/manga/106000/Luminous--Blue/)
+
+> **Score on AL:** 8/10 - _Story: 6, Characters: 8, Visuals: 10, Enjoyment: 8_
+
+</article>
+
+<article>
+
+### #16 - Sakura Trick
+
+<img class="float-left cover" src="https://s4.anilist.co/file/anilistcdn/media/manga/cover/large/bx82257-laxwyUmMSwto.png" height=200 width=125 alt="sakura trick cover">
+
+Now this one is a classic. The only reason for it being so low is that... it's not as good as the others, lmao. I feel like it's a must-have on this list though, so here it is. The art is good, the characters are cute, and the story exists. My most recent reread was not long from the time of writing this, and I enjoyed it just fine. A nice little starter series on the more vanilla side.
+
+[AniList](https://anilist.co/manga/82257/Sakura-Trick/)
+
+> **Score on AL:** 8/10 - _Story: 6, Characters: 8, Visuals: 10, Enjoyment: 8_
+
+</article>
+
+<article>
+
+### #17 - Comprehensive Tovarisch
+
+<img class="float-left cover" src="https://s4.anilist.co/file/anilistcdn/media/manga/cover/large/bx74255-gCA3nUqnlNiu.png" height=200 width=125 alt="tovarisch cover">
+
+I LOVE YUU. Kuudere characters are awesome. This is a comedy manga, so the characters are very exaggerated, and I only point this out because Kanna can be so extremely annoying to me sometimes. I still reread it five times, so the author definitely did something right. The art is pretty good, and I like the dynamic between the two main characters, especially by the end. Overall enjoyable despite the comedy being a little too much for me at times.
+
+[AniList](https://anilist.co/manga/74255/Sougou-Tovarisch/)
+
+> **Score on AL:** 8/10 - _Story: 5, Characters: 8, Visuals: 9, Enjoyment: 10_
+
+</article>
+
+<article>
+
+### #18 - Winter to Summer
+
+<img class="float-left cover" src="https://s4.anilist.co/file/anilistcdn/media/manga/cover/medium/b101799-mM3cLEzTM773.png" height=200 width=125 alt="winter to summer cover">
+
+A cute Chinese manga I read pretty much on a whim around 5 years ago. The translation was kinda rough but I grew to like the characters quite a bit. The art is nothing too special, but it's overall a pretty enjoyable story with two cute main characters. I don't think I can say much more about it, but I do recommend it. I have reread this six times at the time of writing this.
+
+[AniList](https://anilist.co/manga/101799/Dong-Qu-Xia-Lai/)
+
+> **Score on AL:** 8/10 - _Story: 7, Characters: 9, Visuals: 6, Enjoyment: 10_
+
+</article>
+
+<article>
+
+### #19 - Two Person Escape (Futari Escape) 
+
+<img class="float-left cover" src="https://s4.anilist.co/file/anilistcdn/media/manga/cover/large/bx120067-umoeeuttLaRM.jpg" height=200 width=125 alt="futari escape cover">
+
+A masterclass of yuri subtext. The manga is oozing comfy vibes, the kind that makes you smile after each chapter. The author also makes you aware that hey, this is yuri but it's really not about the yuri in a couple chapters. Also, lipfang.
+
+[AniList](https://anilist.co/manga/120067/Futari-Escape/)
+
+> **Score on AL:** 8.2/10 - _Story: 6, Characters: 8, Visuals: 10, Enjoyment: 9_
+
+</article>
+
+<article>
+
+### #20 - Vampire & Junior 
+
+<img class="float-left cover" src="https://s4.anilist.co/file/anilistcdn/media/manga/cover/large/bx98806-eM1w1Q9FwRv1.jpg" height=200 width=125 alt="vampjuni cover">
+
+For my last trick, I'll make your will to live disappear. Not as sad as The Summer You Were There, but still a pretty heart wrenching story. It's short, but that's what makes it lethal in my opinion. Once again not much to say without spoilers, apart from complimenting the art and the characters. I don't want to reread this much, thus I only have two rereads on this one but don't let that discourage you from reading it.
+
+[AniList](https://anilist.co/manga/98806/Kyuuketsukichan-to-Kouhaichan/)
+
+> **Score on AL:** 8/10 - _Story: 7, Characters: 8, Visuals: 8, Enjoyment: 9_
 
 </article>
 </div>
+
+## Honourable mentions
+
+- [Strawberry Fields Once Again](https://anilist.co/manga/99318/Strawberry-Fields-Once-Again/)
+- [γ: Ganma](https://anilist.co/manga/86096/-Ganma/)
+- [Chatting Over Tea at the Amber Teahouse](https://anilist.co/manga/41685/Ameiro-Kochakan-Kandan/)
+- [Girl's Ride](https://anilist.co/manga/53225/Girls-Ride/)
+- [Yellow Drops (R18)](https://anilist.co/manga/85801/Yellow-Drops/)
+
+## Conclusion
+
+Thank you for reading this far! If anything from here caught your eye, please shoot me a message on AL or Discord. I love to talk about manga in general! Hope you enjoyed the list, and before I sign off, I promise I will finish the Linux post this year... I'll definitely get my act together one day, and when I do it's gonna be a banger.
+
+With love, [cakes](/~cakes/about).
