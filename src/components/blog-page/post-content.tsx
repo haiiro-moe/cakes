@@ -306,6 +306,11 @@ export default function PostContent({ slug }: { slug: string }) {
 										)}
 									/>
 								),
+								sup: ({ ...props }) => (
+									<span className="text-sm text-base-content/50">
+										<sup {...props} />
+									</span>
+								),
 								article: ({ ...props }) => (
 									// A card-like container for the post content
 									<div className="bg-base-100 shadow-sm my-3 card">
