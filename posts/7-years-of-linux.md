@@ -7,6 +7,7 @@ date: 2025-07-27 16:00:00+0100
 tags:
     - rambling
     - linux
+    - draft
 ---
 
 # 7 Years of Linux!
