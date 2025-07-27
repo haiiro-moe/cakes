@@ -20,11 +20,11 @@ export async function GET(request: Request) {
 	const searchParams = url.searchParams;
 	if (searchParams.get("sort") === "asc") {
 		allPosts.sort(
-			(a, b) => new Date(a.date).getTime() - new Date(b.date).getTime(),
+			(a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
 		);
 	} else {
 		allPosts.sort(
-			(a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
+			(a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
 		);
 	}
 	if (searchParams.get("slug")) {
@@ -87,6 +87,9 @@ export async function GET(request: Request) {
 				post.description.toLowerCase().includes(search!.toLowerCase())
 			);
 		});
+	}
+	if (!searchParams.get("drafts")) {
+		allPosts = allPosts.filter((p) => !p.tags.includes("draft"));
 	}
 
 	return new Response(JSON.stringify(allPosts), {
