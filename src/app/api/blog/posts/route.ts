@@ -1,9 +1,24 @@
 import { CakePosts } from "@/components/blog-page/get-posts";
 
-let posts = new CakePosts();
+let posts: CakePosts;
+
+export function getPosts() {
+	if (!posts) posts = new CakePosts();
+	if (
+		posts.initiatedAt.getTime() < Date.now() - 1000 * 60 * 60 &&
+		process.env.ENVIRONMENT !== "development"
+	) {
+		posts = new CakePosts();
+	} else {
+		posts = new CakePosts();
+	}
+
+	return posts;
+}
 
 export async function GET(request: Request) {
 	// Check if the posts were initiated more than an hour ago and the dev environment is production
+	if (!posts) posts = new CakePosts();
 	if (
 		posts.initiatedAt.getTime() < Date.now() - 1000 * 60 * 60 &&
 		process.env.ENVIRONMENT !== "development"
@@ -89,7 +104,10 @@ export async function GET(request: Request) {
 		});
 	}
 	if (!searchParams.get("drafts")) {
-		allPosts = allPosts.filter((p) => !p.tags.includes("draft"));
+		allPosts = allPosts.filter((p) => {
+			if (!p.tags) return p;
+			if (!p.tags.includes("draft")) return p;
+		});
 	}
 
 	return new Response(JSON.stringify(allPosts), {
